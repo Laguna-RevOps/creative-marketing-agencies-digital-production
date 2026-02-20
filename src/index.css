@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital@1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 95%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 14%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 14%;
+
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    --accent: 1 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 0 0% 0%;
+    --input: 0 0% 80%;
+    --ring: 0 0% 14%;
+
+    --radius: 0px;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* ICP-specific tokens */
+    --icp-section-bar: 0 0% 14%;
+    --icp-section-bar-fg: 0 0% 100%;
+    --icp-grid-line: 0 0% 30%;
+    --icp-accent-rule: 1 100% 50%;
+    --icp-cell-bg: 0 0% 100%;
+    --icp-label: 0 0% 0%;
+    --icp-value: 0 0% 14%;
+  }
+
+  .dark {
+    --background: 0 0% 95%;
+    --foreground: 0 0% 0%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'SUSE', sans-serif;
+  }
+}
+
+/* Print styles */
+@media print {
+  @page {
+    size: landscape;
+    margin: 0.3in;
+  }
+
+  body {
+    background: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .icp-sheet {
+    border: 2px solid black !important;
+    width: 100% !important;
+    max-width: none !important;
+    font-size: 7pt !important;
+    page-break-inside: avoid;
+  }
+
+  .icp-sheet * {
+    font-size: inherit !important;
+  }
+
+  .icp-sheet .section-bar {
+    background-color: #242424 !important;
+    color: white !important;
+  }
+}
+
+.font-serif-italic {
+  font-family: 'Noto Serif', serif;
+  font-style: italic;
+}

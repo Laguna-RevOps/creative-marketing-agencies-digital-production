@@ -1,14 +1,14 @@
 import { SectionBar, Label, Value } from "./ICPPrimitives";
 import personaSteve from "@/assets/persona-steve.jpg";
 import personaOlivia from "@/assets/persona-olivia.jpg";
-import personaTom from "@/assets/persona-tom.jpg";
+import personaJason from "@/assets/persona-jason.jpg";
 
 interface Persona {
   headerName: string;
   headerType: string;
   image: string;
   general: { label: string; value: string }[];
-  background: string[];
+  background: string;
   goals: string[];
   challenges: string[];
   motivators: string[];
@@ -19,158 +19,161 @@ interface Persona {
 
 const personas: Persona[] = [
   {
-    headerName: "Strategic Steve",
-    headerType: "Decision Maker (CEO / Founder / Managing Partner)",
+    headerName: "MSP Owner / CEO",
+    headerType: "Decision Maker",
     image: personaSteve,
     general: [
-      { label: "Name", value: "Strategic Steve" },
-      { label: "Position", value: "CEO / Founder / Managing Partner" },
-      { label: "Location", value: "United States" },
-      { label: "Company Size", value: "10–50 employees" },
-      { label: "Company Revenue", value: "$500K–$10M" },
+      { label: "Role", value: "Owner / CEO" },
+      { label: "Company", value: "MSP, 8–40 employees" },
+      { label: "Revenue", value: "$3M–$12M" },
+      { label: "Location", value: "U.S.-based, regional" },
     ],
-    background: [
-      "Owns business growth, margins, and client retention.",
-      "Approves vendor partnerships that protect SLAs and enable scale.",
-    ],
+    background:
+      "Built the business on relationships and referrals. Now feels the market tightening. Skeptical of vendors. Has likely seen \"great marketing to MSPs\" but not great execution for MSP buyers.",
     goals: [
-      "Scale service delivery without adding fixed headcount.",
-      "Improve margins and stabilize delivery performance.",
-      "Increase recurring revenue through higher client retention.",
+      "Keep control of the company's voice and message.",
+      "Stop relying on referrals as the only growth engine.",
+      "Look credible next to larger MSPs and security-first competitors.",
+      "Get consistent output without adding permanent payroll.",
     ],
     challenges: [
-      "Delivery bottlenecks when client volume grows.",
-      "Hiring delays for engineers and specialists.",
-      "Margin compression from rising payroll costs.",
+      "Vendor trust issues: too many promises, not enough shipped work.",
+      "Growth work comes in waves, but payroll is fixed.",
+      "Owner gets pulled into marketing decisions because nobody else can unblock the work.",
+      "Hard to keep website and materials current while running delivery.",
     ],
     motivators: [
-      "Predictable delivery capacity.",
-      "Faster response times and SLA stability.",
-      "Reduced hiring risk and overhead.",
+      "Clear monthly cost and clear deliverables.",
+      "\"We are the voice\" stays true, vendor does not hijack messaging.",
+      "Faster turnaround with less babysitting.",
+      "Less waste, less vendor churn.",
     ],
     painPoints: [
-      "Capacity constraints create SLA breach risk.",
-      "Hard to find experienced engineers quickly.",
-      "Internal burnout impacts client satisfaction.",
+      "Paying monthly and still feeling like marketing is \"an unpatched server you hope nobody notices.\"",
+      "Website and collateral do not match the MSP's actual maturity.",
+      "Referral flow is inconsistent.",
+      "Every push becomes chaos because production is the bottleneck.",
     ],
     kpi: [
-      "Gross margin per client",
-      "Client retention rate",
-      "SLA compliance rate",
-      "Ticket backlog trend",
+      "Pipeline consistency month to month",
+      "Meetings booked that actually fit (not junk)",
+      "Close rate and sales cycle length",
+      "Margin impact (because bad spend is obvious)",
     ],
     projects: [
-      "Scaling help desk coverage",
-      "Expanding service delivery capacity",
-      "Building security or cloud capability for managed accounts",
+      "Security package refresh (pages, proof, enablement)",
+      "Vertical expansion kit (vertical page + proof + one-pager)",
+      "Website clean-up and ongoing updates",
+      "Event asset bundle",
     ],
   },
   {
-    headerName: "Operational Olivia",
-    headerType: "Decision Maker (COO / Head of Operations)",
+    headerName: "Marketing Manager / Fractional CMO",
+    headerType: "Champion",
     image: personaOlivia,
     general: [
-      { label: "Name", value: "Operational Olivia" },
-      { label: "Position", value: "COO / Head of Operations" },
-      { label: "Location", value: "United States" },
-      { label: "Company Size", value: "10–50 employees" },
-      { label: "Company Revenue", value: "$500K–$10M" },
+      { label: "Role", value: "Marketing Manager or Fractional CMO" },
+      { label: "Company", value: "MSP, 8–40 employees" },
+      { label: "Revenue", value: "$3M–$12M" },
+      { label: "Location", value: "U.S.-based" },
     ],
-    background: [
-      "Owns the operational model across managed accounts, including scalability, consistency, and delivery resilience.",
-      "Accountable for capacity planning, margin protection, and ensuring growth does not create operational fragility.",
-    ],
+    background:
+      "Often the only marketing person. They already know what the MSP should say. They do not need \"ideas.\" They need a bench to execute. They also know outsiders rarely understand MSP nuance and they are tired of translating the business.",
     goals: [
-      "Build an operating model that scales without margin erosion.",
-      "Maintain consistent SLA performance across accounts as service volume grows.",
-      "Align capacity planning and resourcing to growth forecasts and workload variability.",
+      "Get the backlog under control and keep it from refilling.",
+      "Ship core assets that make sales easier (pages, proof, one-pagers, follow-ups).",
+      "Keep the MSP's voice consistent and internal.",
+      "Stop being the bottleneck for every request.",
     ],
     challenges: [
-      "Growth increases delivery load and exposes weak points in the operating model.",
-      "Hiring cycles lag behind demand, creating capacity gaps and SLA risk.",
-      "Payroll expansion can compress margin and reduce flexibility.",
+      "Everything is urgent and everything routes through them.",
+      "They are doing strategy, writing, design wrangling, web updates, and reporting.",
+      "Vendors either move slow or try to \"own\" the message.",
+      "MSP buyers do not care about technical detail. Messaging needs to translate outcomes.",
     ],
     motivators: [
-      "Predictable operational capacity that scales with demand.",
-      "Reduced risk of delivery instability during growth periods.",
-      "Improved margin control without sacrificing service consistency.",
+      "A production team that can follow direction without constant rework.",
+      "A clean request and approval loop so nothing gets lost.",
+      "Ability to scale up during pushes, then scale down.",
+      "Less vendor overhead and less \"project management tax.\"",
     ],
     painPoints: [
-      "Operational fragility increases as client volume scales.",
-      "Margin compression from reactive hiring decisions.",
-      "Capacity constraints create systemic SLA risk across accounts.",
+      "Landing pages, case studies, and web updates sit in draft for weeks.",
+      "Sales requests pile up and get handled last minute.",
+      "Quality is inconsistent when relying on freelancers.",
+      "They spend more time coordinating than shipping.",
     ],
     kpi: [
-      "Gross margin per client",
-      "SLA compliance trend",
-      "Revenue per engineer",
-      "Cost per ticket",
-      "Forecasted capacity vs actual demand",
+      "Time-to-ship (how fast work goes live)",
+      "Backlog size and backlog age",
+      "Conversion rate on key pages",
+      "Sales enablement turnaround time",
     ],
     projects: [
-      "Scaling the managed services operating model",
-      "Standardizing processes across accounts",
-      "Capacity planning and utilization initiatives",
-      "Operational redundancy and continuity planning",
-      "Expanding recurring delivery capacity without fixed headcount risk",
+      "Quarterly \"website hygiene\" (service pages, vertical pages, proof updates)",
+      "Case study pipeline",
+      "One-pager and deck refresh cadence",
+      "Email templates and follow-up assets",
+      "Vendor co-marketing asset batches",
     ],
   },
   {
-    headerName: "Technical Tom",
-    headerType: "Decision Maker (CTO / Technical Director)",
-    image: personaTom,
+    headerName: "Head of Sales",
+    headerType: "Influencer",
+    image: personaJason,
     general: [
-      { label: "Name", value: "Technical Tom" },
-      { label: "Position", value: "CTO / Technical Director" },
-      { label: "Location", value: "United States" },
-      { label: "Company Size", value: "10–50 employees" },
-      { label: "Company Revenue", value: "$500K–$10M" },
+      { label: "Role", value: "Head of Sales" },
+      { label: "Company", value: "MSP, 8–40 employees" },
+      { label: "Revenue", value: "$3M–$12M" },
+      { label: "Location", value: "U.S.-based" },
     ],
-    background: [
-      "Owns technical standards, security posture, tooling decisions, and delivery quality.",
-      "Evaluates external support based on technical competency, documentation, and rework risk.",
-    ],
+    background:
+      "Carries the number. Wants the marketing stuff to match how they sell. Gets frustrated when outreach goes out and the website cannot back it up.",
     goals: [
-      "Maintain infrastructure reliability and reduce repeat incidents.",
-      "Protect delivery quality while increasing throughput.",
-      "Expand cloud and security capability without overloading internal engineers.",
+      "Have the right pages and proof ready before outreach.",
+      "Stop losing deals to \"they look more established than us.\"",
+      "Get vertical credibility without making reps build assets themselves.",
+      "Keep follow-up tight so deals do not cool off.",
     ],
     challenges: [
-      "Escalations disrupt strategic projects and long-term improvements.",
-      "Skill gaps slow delivery on cloud and security initiatives.",
-      "Reactive support creates technical debt and rework.",
+      "Prospects ask for proof and materials are outdated or missing.",
+      "Competitors look sharper online.",
+      "Marketing cannot keep up with real sales timing.",
+      "Generic vendor PDFs do not help in competitive deals.",
     ],
     motivators: [
-      "Competent technical delivery that does not create rework.",
-      "Clear documentation and adherence to standards.",
-      "Predictable capacity for cloud and security initiatives.",
+      "Fast enablement turnaround.",
+      "Clear, simple assets that sales can use immediately.",
+      "Vertical proof that matches the rep's pitch.",
+      "Less scramble, fewer \"we'll send it later\" moments.",
     ],
     painPoints: [
-      "Interrupt-driven work prevents progress on system improvements.",
-      "Quality slips when teams are overloaded.",
-      "Security requirements increase workload without added capacity.",
+      "\"We should have had that page ready\" happens too often.",
+      "Follow-up is weak because proof is missing.",
+      "Reps are improvising with outdated decks.",
+      "Campaign timing slips because production is slow.",
     ],
     kpi: [
-      "Mean time to resolve (MTTR)",
-      "Escalation volume",
-      "Repeat incident rate",
-      "Project delivery timelines",
-      "Security incident rate",
+      "Meetings to qualified opportunities",
+      "Proposal-to-close rate",
+      "Sales cycle length",
+      "Win rate by vertical",
     ],
     projects: [
-      "Cloud migrations and support",
-      "Security hardening and remediation",
-      "Network upgrades and maintenance",
-      "Automation and scripting support",
+      "Vertical sales kit builds",
+      "Security credibility pack",
+      "Event follow-up bundle",
+      "Rep onboarding enablement kit",
     ],
   },
 ];
 
 const whereData = [
-  { label: "Social Media", value: "LinkedIn, YouTube" },
-  { label: "Search Engine", value: "Google" },
-  { label: "Communities", value: "MSP peer groups, vendor communities" },
-  { label: "Events", value: "Channel conferences, local IT meetups" },
+  { label: "Reddit", value: "r/MSP (asking blunt questions, sharing vendor experiences)" },
+  { label: "Communities", value: "Vendor communities and peer groups" },
+  { label: "LinkedIn", value: "Owners and sales leaders, more than engineers" },
+  { label: "Events", value: "Conferences and local industry meetups" },
+  { label: "Search", value: "Google (prospect research, competitor comparison)" },
 ];
 
 const ListSection: React.FC<{ title: string; items: string[]; numbered?: boolean }> = ({
@@ -178,18 +181,20 @@ const ListSection: React.FC<{ title: string; items: string[]; numbered?: boolean
   items,
   numbered,
 }) => (
-  <div className="border-b border-icp-grid/20 last:border-b-0 px-2 py-1 bg-icp-cell">
+  <div className="border-b border-icp-grid/20 last:border-b-0 px-3 py-2 bg-icp-cell">
     <Label>{title}</Label>
     {numbered ? (
-      <ol className="mt-0.5 list-decimal list-inside">
+      <ol className="mt-1.5 list-decimal list-inside">
         {items.map((item, i) => (
-          <li key={i} className="text-[9px] leading-[1.3] text-icp-value">{item}</li>
+          <li key={i} className="text-[11px] leading-relaxed mb-1.5 text-icp-value">{item}</li>
         ))}
       </ol>
     ) : (
-      <ul className="mt-0.5 list-disc list-inside">
+      <ul className="mt-1.5">
         {items.map((item, i) => (
-          <li key={i} className="text-[9px] leading-[1.3] text-icp-value">{item}</li>
+          <li key={i} className="text-[11px] leading-relaxed mb-1.5 text-icp-value">
+            <span className="text-icp-label mr-1">•</span>{item}
+          </li>
         ))}
       </ul>
     )}
@@ -199,29 +204,29 @@ const ListSection: React.FC<{ title: string; items: string[]; numbered?: boolean
 const PersonaBlock: React.FC<{ persona: Persona }> = ({ persona }) => (
   <div className="border-b-2 border-foreground last:border-b-0">
     <SectionBar>
-      <div className="text-center text-[11px]">
+      <div className="text-center text-[12px]">
         {persona.headerName} – {persona.headerType}
       </div>
     </SectionBar>
 
     <div className="grid grid-cols-[280px_1fr] border-x border-b border-icp-grid/30">
       <div className="border-r border-icp-grid/30">
-        <div className="p-2 bg-icp-cell border-b border-icp-grid/20">
+        <div className="p-3 bg-icp-cell border-b border-icp-grid/20">
           <img
             src={persona.image}
             alt={persona.headerName}
             className="w-full aspect-square object-cover border border-[#CFCFCF] grayscale-[8%]"
           />
         </div>
-        <div className="bg-muted/50 border-b border-icp-grid/20 px-2 py-1 text-[10px] font-bold text-center">
+        <div className="bg-muted/50 border-b border-icp-grid/20 px-3 py-1.5 text-[11px] font-bold text-center">
           General Information
         </div>
         {persona.general.map((item, i) => (
           <div key={i} className="grid grid-cols-[100px_1fr] border-b border-icp-grid/20 last:border-b-0">
-            <div className="px-2 py-1 text-[10px] font-bold border-r border-icp-grid/20 bg-muted/50">
+            <div className="px-3 py-1.5 text-[11px] font-bold border-r border-icp-grid/20 bg-muted/50">
               {item.label}
             </div>
-            <div className="px-2 py-1 text-[10px] bg-icp-cell">
+            <div className="px-3 py-1.5 text-[11px] bg-icp-cell">
               <Value>{item.value}</Value>
             </div>
           </div>
@@ -229,13 +234,16 @@ const PersonaBlock: React.FC<{ persona: Persona }> = ({ persona }) => (
       </div>
 
       <div>
-        <ListSection title="Background" items={persona.background} />
+        <div className="border-b border-icp-grid/20 px-3 py-2 bg-icp-cell">
+          <Label>Background</Label>
+          <p className="text-[11px] leading-relaxed mt-1 text-icp-value">{persona.background}</p>
+        </div>
         <ListSection title="Goals" items={persona.goals} numbered />
         <ListSection title="Challenges" items={persona.challenges} numbered />
         <ListSection title="Motivators" items={persona.motivators} />
         <ListSection title="Pain Points" items={persona.painPoints} numbered />
-        <ListSection title="KPI" items={persona.kpi} />
-        <ListSection title="Type of Projects" items={persona.projects} />
+        <ListSection title="KPIs" items={persona.kpi} />
+        <ListSection title="Projects / Use Cases" items={persona.projects} />
       </div>
     </div>
   </div>
@@ -253,10 +261,10 @@ const BuyerPersonasTab = () => (
     <div className="border-x border-b border-icp-grid/30 bg-icp-cell">
       {whereData.map((item, i) => (
         <div key={i} className="grid grid-cols-[160px_1fr] border-b border-icp-grid/20 last:border-b-0">
-          <div className="px-2 py-1 text-[10px] font-bold border-r border-icp-grid/20 bg-muted/50">
+          <div className="px-3 py-2 text-[11px] font-bold border-r border-icp-grid/20 bg-muted/50">
             {item.label}
           </div>
-          <div className="px-2 py-1 text-[10px]">
+          <div className="px-3 py-2 text-[11px] leading-relaxed">
             <Value>{item.value}</Value>
           </div>
         </div>

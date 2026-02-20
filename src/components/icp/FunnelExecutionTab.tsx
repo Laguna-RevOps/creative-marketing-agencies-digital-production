@@ -1,89 +1,153 @@
 import { SectionBar, Label, Value } from "./ICPPrimitives";
 
-const funnelColumns = [
+/* ── Funnel Messaging by Awareness Stage ── */
+const funnelStages = [
   {
     stage: "Unaware",
-    lines: [
-      "If your MSP feels chaotic, it is not chaos. It is math.",
-      "Burnout is not cultural. It is structural.",
-      "Backlog is not random. It is predictable.",
+    description: "They have not named the problem yet. They just feel the drag.",
+    themes: [
+      "\"If your website still looks generic, you're going to get compared on price.\"",
+      "\"If nothing ever gets finished, it's not because you're lazy. It's because one person can't do five jobs.\"",
+      "\"Referrals are great until they slow down.\"",
     ],
   },
   {
     stage: "Problem Aware",
-    lines: [
-      "Your SLA is at risk because engineers are maxed out.",
-      "Hiring cycles are longer than your growth cycle.",
-      "Escalation spikes are a leading indicator of churn and turnover.",
+    description: "They can name the headaches.",
+    themes: [
+      "\"We've got a backlog a mile long.\"",
+      "\"We pay for help and still don't see output.\"",
+      "\"We keep saying we'll update the site, then months go by.\"",
+      "\"Marketing is hard because nobody cares about the technical guts, they care about outcomes.\"",
     ],
   },
   {
     stage: "Solution Aware",
-    lines: [
-      "High-growth MSPs use flexible engineering capacity.",
-      "Stop hiring for every spike.",
-      "Elastic delivery beats fixed payroll.",
+    description: "They are looking for a model that fits an MSP.",
+    themes: [
+      "\"We want to keep our voice in-house, but we need extra hands.\"",
+      "\"I don't want a full department. I want a bench.\"",
+      "\"I want predictable monthly cost, not another salary.\"",
     ],
   },
   {
     stage: "Product Aware",
-    lines: [
-      "CST/EST aligned nearshore delivery capacity.",
-      "White-label support under your brand.",
-      "Engineers integrate into your workflows without long-term hiring risk.",
+    description: "They're comparing options.",
+    themes: [
+      "\"Do you understand MSP language or are we translating everything?\"",
+      "\"Are you going to build what we ask for, or try to run our marketing?\"",
+      "\"What do we actually get each month and how fast does it move?\"",
     ],
   },
   {
     stage: "Most Aware",
-    lines: [
-      "If backlog exceeds 15%, you need delivery elasticity.",
-      "If utilization is above 80%, capacity is already constrained.",
-      "If hiring takes more than 60 days, flexibility becomes the safer option.",
+    description: "They're ready to pick and want clarity.",
+    themes: [
+      "\"We're done gambling on marketing companies.\"",
+      "\"We want in-house control plus consistent output.\"",
+      "\"We need to get past referrals this year.\"",
     ],
   },
 ];
 
-const leftTriggers = [
+/* ── Buying Triggers to Activation Plays ── */
+const triggerPlays = [
   {
-    title: "New Client Acquisition Spike",
-    trigger: "MSP signs multiple new managed service contracts in a short period.",
-    reason: "Support volume increases and delivery capacity must scale quickly to protect SLAs.",
+    trigger: "Referral slowdown",
+    play: "\"Backlog clean-up month\"",
+    actions: [
+      "Update core service pages",
+      "Add or fix vertical pages",
+      "Create 1–2 case studies",
+      "Refresh sales deck and one-pagers",
+      "Build follow-up templates (email + simple PDFs)",
+    ],
   },
   {
-    title: "Key Engineer Turnover",
-    trigger: "Senior engineer resigns or extended PTO impacts coverage.",
-    reason: "Delivery gaps create backlog risk; MSP needs immediate coverage without long hiring cycles.",
+    trigger: "New security offer or security refresh",
+    play: "\"Security credibility pack\"",
+    actions: [
+      "Rewrite and rebuild security pages in plain English",
+      "Proof points and FAQs",
+      "Case study format and first case study",
+      "Sales one-pager + basic follow-up assets",
+    ],
+  },
+  {
+    trigger: "Hiring a new sales rep",
+    play: "\"Sales ramp kit\"",
+    actions: [
+      "Updated deck",
+      "One-pagers by service",
+      "Vertical proof sheets",
+      "Email templates for outreach",
+    ],
+  },
+  {
+    trigger: "Entering a new vertical",
+    play: "\"Vertical kit\"",
+    actions: [
+      "Vertical page",
+      "Vertical one-pager",
+      "Proof asset (case study or customer story)",
+      "A small bundle of outreach follow-ups",
+    ],
+  },
+  {
+    trigger: "Event or conference coming up",
+    play: "\"Event bundle\"",
+    actions: [
+      "Event landing page",
+      "Invite email templates",
+      "Follow-up templates",
+      "Handout PDF",
+    ],
   },
 ];
 
-const rightTriggers = [
+/* ── Execution Formats Matrix ── */
+const executionFormats = [
   {
-    title: "Major Client Project (Migration or Modernization)",
-    trigger: "Cloud migration, M365 rollout, network refresh, or compliance project begins.",
-    reason: "Project workload spikes beyond normal managed services ticket volume.",
+    stage: "Unaware: \"Quick hits\"",
+    formats: [
+      "Owner note: what changed, what broke, what we learned",
+      "A short list: \"If these are true, you've got a capacity problem\"",
+      "Simple comparison: \"Why most MSP websites all look the same\"",
+    ],
   },
   {
-    title: "Tooling or Process Standardization",
-    trigger: "MSP implements new PSA/RMM processes or documentation standards.",
-    reason: "Needs additional hands to stabilize operations while keeping tickets on track.",
+    stage: "Problem Aware: \"Show the backlog\"",
+    formats: [
+      "A real backlog list: what's stuck and why",
+      "Before/after examples using plain language",
+      "\"Here's what we tried that didn't work\" (freelancers, vendors, stop-start efforts)",
+    ],
+  },
+  {
+    stage: "Solution Aware: \"Explain the model\"",
+    formats: [
+      "Bench vs hire: simple roles and simple dollars",
+      "\"You stay the voice\" explanation with clear boundaries",
+      "How requests and approvals work so nothing gets lost",
+    ],
+  },
+  {
+    stage: "Product Aware: \"Make it concrete\"",
+    formats: [
+      "What's included each month",
+      "What \"done\" looks like for common MSP assets",
+      "How fast work moves and how reviews work",
+    ],
+  },
+  {
+    stage: "Most Aware: \"Make the next step obvious\"",
+    formats: [
+      "Start with a backlog clean-up month",
+      "Then move to a monthly bucket",
+      "Scale up for pushes, scale down after",
+    ],
   },
 ];
-
-const formatsMatrix = [
-  { stage: "Unaware", formats: "Founder POV, Meme/Trend, Story post, Industry stat post" },
-  { stage: "Problem Aware", formats: "Whiteboard breakdown, Before/After scenario, Case walkthrough, Workflow diagram" },
-  { stage: "Solution Aware", formats: "Comparison (Hiring vs Flexible Capacity), Framework visual, Utilization model explanation" },
-  { stage: "Product Aware", formats: "Process diagram, Onboarding timeline, Tool compatibility overview, Proof points" },
-  { stage: "Most Aware", formats: "Offer-first banner, Capacity audit CTA, Utilization calculator, Direct response post" },
-];
-
-const TriggerBlock = ({ title, trigger, reason }: { title: string; trigger: string; reason: string }) => (
-  <div className="border-b border-icp-grid/20 last:border-b-0 px-2 py-1.5 bg-icp-cell text-[10px] leading-tight">
-    <div className="font-bold text-icp-label mb-0.5">{title}</div>
-    <div><Label>Trigger: </Label><Value>{trigger}</Value></div>
-    <div className="mt-0.5"><Label>Reason: </Label><Value>{reason}</Value></div>
-  </div>
-);
 
 const FunnelExecutionTab = () => (
   <div>
@@ -91,67 +155,77 @@ const FunnelExecutionTab = () => (
     <SectionBar>
       <div className="text-center">Funnel Messaging by Awareness Stage</div>
     </SectionBar>
-    <div className="border-x border-b border-icp-grid/30">
-      {/* Column headers */}
-      <div className="grid grid-cols-5 bg-muted/50 border-b border-icp-grid/20">
-        {funnelColumns.map((col) => (
-          <div key={col.stage} className="px-2 py-1 text-[9px] font-bold border-r border-icp-grid/20 last:border-r-0 text-center">
-            {col.stage}
-          </div>
-        ))}
-      </div>
-      {/* Body */}
-      <div className="grid grid-cols-5">
-        {funnelColumns.map((col) => (
-          <div key={col.stage} className="border-r border-icp-grid/20 last:border-r-0 bg-icp-cell px-2 py-1.5">
-            {col.lines.map((line, i) => (
-              <p key={i} className="text-[9px] leading-[1.3] mb-1 text-icp-value">
-                <span className="text-icp-label">•</span> {line}
+    <div className="border-x border-b border-icp-grid/30 bg-background p-5">
+      <div className="space-y-6">
+        {funnelStages.map((stage) => (
+          <div key={stage.stage} className="border border-icp-grid/30 bg-icp-cell">
+            <div className="bg-icp-bar text-icp-bar-fg px-5 py-2.5">
+              <h3 className="text-[13px] font-bold uppercase tracking-wider">{stage.stage}</h3>
+            </div>
+            <div className="px-5 py-4">
+              <p className="text-[12px] leading-relaxed text-icp-value mb-3 italic">
+                {stage.description}
               </p>
-            ))}
+              <div className="space-y-2">
+                {stage.themes.map((theme, i) => (
+                  <p key={i} className="text-[11px] leading-relaxed text-icp-value">
+                    <span className="text-icp-label mr-1.5">•</span>{theme}
+                  </p>
+                ))}
+              </div>
+            </div>
           </div>
         ))}
       </div>
-    </div>
-    <div className="border-x border-b border-icp-grid/30 bg-icp-cell px-3 py-1">
-      <p className="text-[9px] italic text-icp-value/70">
-        (Use angles from Tab 3, matched to the persona from Tab 2)
-      </p>
     </div>
 
     {/* Section 2: Buying Triggers to Activation Plays */}
     <SectionBar>
       <div className="text-center">Buying Triggers to Activation Plays</div>
     </SectionBar>
-    <div className="grid grid-cols-2 border-x border-b border-icp-grid/30">
-      <div className="border-r border-icp-grid/30">
-        {leftTriggers.map((t, i) => <TriggerBlock key={i} {...t} />)}
-      </div>
-      <div>
-        {rightTriggers.map((t, i) => <TriggerBlock key={i} {...t} />)}
+    <div className="border-x border-b border-icp-grid/30 bg-background p-5">
+      <div className="space-y-6">
+        {triggerPlays.map((item, i) => (
+          <div key={i} className="border border-icp-grid/30 bg-icp-cell">
+            <div className="px-5 py-4">
+              <p className="text-[13px] font-bold text-icp-label mb-1">{item.trigger}</p>
+              <p className="text-[12px] text-icp-value mb-3 pl-3">
+                <Label>Play: </Label><Value>{item.play}</Value>
+              </p>
+              <div className="pl-3 space-y-1.5">
+                {item.actions.map((action, j) => (
+                  <p key={j} className="text-[11px] leading-relaxed text-icp-value">
+                    <span className="text-icp-label mr-1.5">•</span>{action}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
 
-    {/* Bottom: Execution Formats Matrix */}
+    {/* Section 3: Execution Formats Matrix */}
     <SectionBar>
       <div className="text-center">Execution Formats Matrix</div>
     </SectionBar>
-    <div className="border-x border-b border-icp-grid/30">
-      {/* Header row */}
-      <div className="grid grid-cols-[180px_1fr] bg-muted/50 border-b border-icp-grid/20">
-        <div className="px-2 py-1 text-[9px] font-bold border-r border-icp-grid/20">Awareness Stage</div>
-        <div className="px-2 py-1 text-[9px] font-bold">Best Formats</div>
+    <div className="border-x border-b border-icp-grid/30 bg-background p-5">
+      <div className="space-y-6">
+        {executionFormats.map((block, i) => (
+          <div key={i} className="border border-icp-grid/30 bg-icp-cell">
+            <div className="bg-muted/60 border-b border-icp-grid/20 px-5 py-2.5">
+              <h3 className="text-[12px] font-bold text-icp-label">{block.stage}</h3>
+            </div>
+            <div className="px-5 py-4 space-y-2">
+              {block.formats.map((format, j) => (
+                <p key={j} className="text-[11px] leading-relaxed text-icp-value">
+                  <span className="text-icp-label mr-1.5">•</span>{format}
+                </p>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
-      {formatsMatrix.map((row, i) => (
-        <div key={i} className="grid grid-cols-[180px_1fr] border-b border-icp-grid/20 last:border-b-0">
-          <div className="px-2 py-1 text-[9px] font-bold bg-muted/50 border-r border-icp-grid/20">
-            {row.stage}
-          </div>
-          <div className="px-2 py-1 text-[9px] text-icp-value bg-icp-cell">
-            {row.formats}
-          </div>
-        </div>
-      ))}
     </div>
   </div>
 );

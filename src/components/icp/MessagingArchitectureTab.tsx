@@ -1,118 +1,38 @@
 import { SectionBar, Label, Value } from "./ICPPrimitives";
+import { painMappings, painCards, objectionHandling, desireState } from "./messaging-data";
+import type { PainData, PersonaAngles } from "./messaging-data";
 
-const painPersonaRows = [
-  {
-    pain: "Ticket Backlog & SLA Pressure",
-    ceo: "Churn risk and brand damage from missed response targets.",
-    coo: "Delivery model strain, capacity gaps, and operational fragility under volume.",
-    cto: "Escalation overload disrupting strategic work and quality control.",
-    lever: "Stress",
-  },
-  {
-    pain: "Hiring Delays & Cost",
-    ceo: "Growth bottleneck, payroll risk, margin compression.",
-    coo: "Capacity planning fails when hiring cycles lag behind growth forecasts.",
-    cto: "Skill gaps slow cloud and security delivery.",
-    lever: "Risk",
-  },
-  {
-    pain: "Burnout & Escalation Chaos",
-    ceo: "Retention risk and culture damage impacts delivery reliability.",
-    coo: "Operational instability, margin risk, and delivery model fragility.",
-    cto: "Interrupt-driven work increases rework and technical debt.",
-    lever: "Frustration",
-  },
-  {
-    pain: "Growth Without Capacity Planning",
-    ceo: "Scaling ceiling, operational collapse risk during growth.",
-    coo: "Delivery model fragility increases with every new account.",
-    cto: "Technical debt accelerates as complexity grows.",
-    lever: "Fear",
-  },
-];
+const PersonaBlock: React.FC<{ data: PersonaAngles }> = ({ data }) => (
+  <div className="bg-icp-cell border border-icp-grid/20 p-5">
+    <h4 className="text-[13px] font-bold text-icp-label mb-4 pb-2 border-b border-icp-grid/20">
+      {data.persona}
+    </h4>
+    <div className="space-y-3">
+      {data.angles.map((angle, i) => (
+        <div key={i} className="flex items-start gap-2">
+          <span className="inline-block bg-muted text-[9px] font-bold text-icp-label px-2 py-0.5 mt-0.5 whitespace-nowrap shrink-0 uppercase tracking-wide">
+            {angle.type}
+          </span>
+          <span className="text-[11px] leading-relaxed text-icp-value">{angle.text}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+);
 
-const messagingAngles = [
-  {
-    heading: "Ticket Backlog & SLA Pressure",
-    ceo: [
-      "Backlog is a silent revenue leak.",
-      "SLA breaches do not happen suddenly, they accumulate.",
-      "Every delayed ticket compounds churn risk.",
-    ],
-    coo: [
-      "You do not have a workflow issue, you have a capacity ceiling.",
-      "You cannot optimize your way out of a structural capacity gap.",
-      "Delivery model resilience requires capacity elasticity, not process tuning.",
-    ],
-    cto: [
-      "Escalations are crowding out strategic projects.",
-      "Interrupt-driven engineering reduces quality and increases rework.",
-      "Technical debt grows when tickets dominate.",
-    ],
-  },
-  {
-    heading: "Hiring Delays & Cost",
-    ceo: [
-      "Hiring takes 90 days, demand grows daily.",
-      "Payroll is fixed, client volume is not.",
-      "You do not need another hiring gamble.",
-    ],
-    coo: [
-      "Capacity gaps widen while hiring pipelines move slowly.",
-      "Hiring lag becomes delivery model fragility.",
-      "Open roles create systemic SLA risk across accounts.",
-    ],
-    cto: [
-      "Security and cloud work does not wait for headcount.",
-      "Skill gaps widen during hiring delays.",
-      "Architecture improvements stall without bandwidth.",
-    ],
-  },
-  {
-    heading: "Burnout & Escalation Chaos",
-    ceo: [
-      "Burnout erodes retention before revenue drops.",
-      "Your best engineers are your highest churn risk.",
-      "Delivery reliability fails when people are overloaded.",
-    ],
-    coo: [
-      "Firefighting is not a sustainable operating model.",
-      "Escalation patterns predict margin compression and turnover.",
-      "Overutilization is not efficiency, it is operational fragility.",
-    ],
-    cto: [
-      "Engineers were hired to build, not survive.",
-      "Reactive work kills strategic execution.",
-      "Interruptions destroy focus and increase mistakes.",
-    ],
-  },
-  {
-    heading: "Growth Without Capacity Planning",
-    ceo: [
-      "You cannot scale a 20-person MSP with a 20-person ceiling.",
-      "Revenue growth without delivery elasticity is dangerous.",
-      "Margin shrinks when payroll grows faster than efficiency.",
-    ],
-    coo: [
-      "Every new contract increases delivery model fragility.",
-      "Client growth amplifies operating model weaknesses.",
-      "Delivery resilience must scale with demand or margins collapse.",
-    ],
-    cto: [
-      "Growth amplifies infrastructure complexity.",
-      "Scaling clients without scaling systems increases risk.",
-      "Technical debt accelerates under constant pressure.",
-    ],
-  },
-];
-
-const BulletList: React.FC<{ items: string[] }> = ({ items }) => (
-  <div>
-    {items.map((item, i) => (
-      <p key={i} className="text-[9px] leading-[1.3] mb-0.5 text-icp-value">
-        <span className="text-icp-label">•</span> {item}
-      </p>
-    ))}
+const PainCard: React.FC<{ data: PainData }> = ({ data }) => (
+  <div className="border border-icp-grid/30 bg-icp-cell">
+    <div className="bg-icp-bar text-icp-bar-fg px-6 py-3">
+      <h3 className="text-[13px] font-bold uppercase tracking-wider">{data.title}</h3>
+    </div>
+    <div className="px-6 py-4 border-b border-icp-grid/20">
+      <p className="text-[12px] leading-relaxed text-icp-value">{data.summary}</p>
+    </div>
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-5">
+      {data.personas.map((persona, i) => (
+        <PersonaBlock key={i} data={persona} />
+      ))}
+    </div>
   </div>
 );
 
@@ -122,12 +42,21 @@ const MessagingArchitectureTab = () => (
     <SectionBar>
       <div className="text-center">Primary Organizing Principle</div>
     </SectionBar>
-    <div className="border-x border-b border-icp-grid/30 bg-icp-cell px-3 py-2">
-      <p className="text-[10px] leading-[1.4] text-icp-value">
-        <Label>Pain-First</Label> — MSPs in the 10–50 employee range buy solutions to operational pressure. Messaging must lead with capacity constraints, SLA risk, hiring delays, and burnout, then position Boombit as delivery elasticity that stabilizes execution without increasing fixed payroll.
+    <div className="border-x border-b border-icp-grid/30 bg-icp-cell px-5 py-4">
+      <p className="text-[12px] leading-relaxed text-icp-value mb-2">
+        MSPs do not want outsiders "running marketing."
       </p>
-      <p className="text-[9px] italic text-icp-value/70 mt-1">
-        (Ref: Tab 1 Pain Points + Tab 2 CEO/COO/CTO Goals)
+      <p className="text-[12px] leading-relaxed text-icp-value mb-2">
+        They want to keep it in-house because they know their customers better than anyone, and they do not want their voice rewritten by someone who does not understand the business.
+      </p>
+      <p className="text-[12px] leading-relaxed text-icp-value mb-2">
+        But they also know one person cannot do everything.
+      </p>
+      <p className="text-[12px] leading-relaxed text-icp-value mb-2">
+        So the core message is simple: <Label>You stay the voice. You set direction. We do the build work so it actually ships.</Label>
+      </p>
+      <p className="text-[12px] leading-relaxed text-icp-value">
+        Also important: MSP marketing is hard because buyers do not care about the technical guts. They care about outcomes, reassurance, and proof.
       </p>
     </div>
 
@@ -137,73 +66,67 @@ const MessagingArchitectureTab = () => (
     </SectionBar>
     <div className="border-x border-b border-icp-grid/30">
       {/* Column headers */}
-      <div className="grid grid-cols-[180px_1fr_1fr_1fr_100px] bg-muted/50 border-b border-icp-grid/20">
-        {["Pain", "CEO (Strategic Steve)", "COO (Operational Olivia)", "CTO (Technical Tom)", "Emotional Lever"].map((h) => (
-          <div key={h} className="px-2 py-1 text-[9px] font-bold border-r border-icp-grid/20 last:border-r-0 text-center">
+      <div className="grid grid-cols-[200px_1fr_1fr_1fr] bg-muted/50 border-b border-icp-grid/20">
+        {["Pain", "Owner / CEO", "Marketing Manager / Fractional CMO", "Head of Sales"].map((h) => (
+          <div key={h} className="px-3 py-2 text-[11px] font-bold border-r border-icp-grid/20 last:border-r-0 text-center">
             {h}
           </div>
         ))}
       </div>
       {/* Rows */}
-      {painPersonaRows.map((row, i) => (
-        <div key={i} className="grid grid-cols-[180px_1fr_1fr_1fr_100px] border-b border-icp-grid/20 last:border-b-0">
-          <div className="px-2 py-1 text-[9px] font-bold bg-muted/50 border-r border-icp-grid/20">
+      {painMappings.map((row, i) => (
+        <div key={i} className="grid grid-cols-[200px_1fr_1fr_1fr] border-b border-icp-grid/20 last:border-b-0">
+          <div className="px-3 py-2.5 text-[11px] font-bold bg-muted/50 border-r border-icp-grid/20">
             {row.pain}
           </div>
-          <div className="px-2 py-1 text-[9px] leading-[1.3] text-icp-value border-r border-icp-grid/20 bg-icp-cell">
-            {row.ceo}
+          <div className="px-3 py-2.5 text-[11px] leading-relaxed text-icp-value border-r border-icp-grid/20 bg-icp-cell">
+            {row.owner}
           </div>
-          <div className="px-2 py-1 text-[9px] leading-[1.3] text-icp-value border-r border-icp-grid/20 bg-icp-cell">
-            {row.coo}
+          <div className="px-3 py-2.5 text-[11px] leading-relaxed text-icp-value border-r border-icp-grid/20 bg-icp-cell">
+            {row.marketing}
           </div>
-          <div className="px-2 py-1 text-[9px] leading-[1.3] text-icp-value border-r border-icp-grid/20 bg-icp-cell">
-            {row.cto}
-          </div>
-          <div className="px-2 py-1 text-[9px] font-bold text-center bg-icp-cell">
-            {row.lever}
+          <div className="px-3 py-2.5 text-[11px] leading-relaxed text-icp-value bg-icp-cell">
+            {row.sales}
           </div>
         </div>
       ))}
-    </div>
-    <div className="border-x border-b border-icp-grid/30 bg-icp-cell px-3 py-1">
-      <p className="text-[9px] italic text-icp-value/70">
-        (Ref: Tab 1 Qualification Criteria + Buying Triggers Events)
-      </p>
     </div>
 
     {/* Section 3: Messaging Angles by Pain */}
     <SectionBar>
       <div className="text-center">Messaging Angles by Pain</div>
     </SectionBar>
-    <div className="border-x border-b border-icp-grid/30">
-      {messagingAngles.map((block, i) => (
-        <div key={i} className={`${i > 0 ? "border-t-2 border-icp-grid/40" : ""}`}>
-          {/* Sub-block heading */}
-          <div className="bg-muted/50 border-b border-icp-grid/20 px-2 py-1 text-[10px] font-bold">
-            {block.heading}
-          </div>
-          {/* Three columns */}
-          <div className="grid grid-cols-3 border-b border-icp-grid/20 last:border-b-0">
-            <div className="px-2 py-1.5 border-r border-icp-grid/20 bg-icp-cell">
-              <div className="text-[9px] font-bold mb-0.5 text-icp-label">CEO</div>
-              <BulletList items={block.ceo} />
-            </div>
-            <div className="px-2 py-1.5 border-r border-icp-grid/20 bg-icp-cell">
-              <div className="text-[9px] font-bold mb-0.5 text-icp-label">COO</div>
-              <BulletList items={block.coo} />
-            </div>
-            <div className="px-2 py-1.5 bg-icp-cell">
-              <div className="text-[9px] font-bold mb-0.5 text-icp-label">CTO</div>
-              <BulletList items={block.cto} />
-            </div>
-          </div>
+    <div className="border-x border-b border-icp-grid/30 bg-background">
+      <div className="p-4 space-y-10">
+        {painCards.map((pain, i) => (
+          <PainCard key={i} data={pain} />
+        ))}
+      </div>
+    </div>
+
+    {/* Objection Handling */}
+    <SectionBar>
+      <div className="text-center">Objection Handling</div>
+    </SectionBar>
+    <div className="border-x border-b border-icp-grid/30 bg-icp-cell px-5 py-4 space-y-4">
+      {objectionHandling.map((item, i) => (
+        <div key={i}>
+          <p className="text-[12px] font-bold text-icp-label mb-1">{item.objection}</p>
+          <p className="text-[11px] leading-relaxed text-icp-value pl-3">{item.response}</p>
         </div>
       ))}
     </div>
-    <div className="border-x border-b border-icp-grid/30 bg-icp-cell px-3 py-1">
-      <p className="text-[9px] italic text-icp-value/70">
-        (Ref: Tab 4 for funnel deployment of each angle)
-      </p>
+
+    {/* Desire State */}
+    <SectionBar>
+      <div className="text-center">Desire State</div>
+    </SectionBar>
+    <div className="border-x border-b border-icp-grid/30 bg-icp-cell px-5 py-4">
+      {desireState.map((item, i) => (
+        <p key={i} className="text-[12px] leading-relaxed text-icp-value mb-2 last:mb-0">
+          <span className="text-icp-label mr-1">•</span>{item}
+        </p>
+      ))}
     </div>
   </div>
 );

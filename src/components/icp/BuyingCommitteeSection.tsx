@@ -2,56 +2,71 @@ import { SectionBar, Label, Value } from "./ICPPrimitives";
 
 const committeeData = [
   {
-    category: "Champions",
-    title: "Head of Service Delivery, Technical Operations Manager, Director of IT Services",
-    role: "Responsible for day-to-day service delivery, SLA performance, resourcing, and keeping ticket flow under control.",
+    category: "Champion",
+    title: "Marketing manager or fractional CMO",
+    role: "Wants production help, not someone trying to run the company's message.",
   },
   {
-    category: "Decision Makers",
-    title: "CEO, Founder, Managing Partner",
-    role: "Owns growth, margins, and vendor decisions; approves recurring delivery partnerships.",
+    category: "Decision Maker",
+    title: "Owner/CEO",
+    role: "Skeptical, has likely been burned, wants clear cost and clear output.",
   },
   {
-    category: "Influencers",
-    title: "Senior Systems Engineer, Network Engineer, Security Engineer, Service Desk Manager",
-    role: "Validates technical fit, workflow impact, and quality; influences vendor choice based on execution results.",
+    category: "Influencer",
+    title: "Head of Sales",
+    role: "Needs pages and collateral ready before outreach and follow-up.",
   },
   {
     category: "Blockers",
-    title: "Finance Lead/Controller, Operations Manager",
-    role: "Focused on cost control, risk, and operational disruption; may push back on external resourcing.",
+    title: "Finance/ops",
+    role: "Hates vague scope, hates \"ongoing projects,\" wants clarity.",
   },
 ];
 
 const jobsToBeDone = [
-  "Maintain SLA compliance across all managed accounts.",
-  "Reduce ticket resolution time.",
-  "Scale service delivery during growth phases.",
-  "Expand cybersecurity and cloud service offerings.",
-  "Improve operational efficiency.",
-  "Maintain client retention and satisfaction.",
-  "Increase recurring revenue without increasing fixed costs.",
+  "Keep the website current so it does not look stale next to competitors.",
+  "Turn internal \"we're good at X\" into actual pages and proof, not just internal talk.",
+  "Produce case studies and proof assets consistently.",
+  "Keep sales materials updated so reps stop winging it.",
+  "Support launches (new security package, new vertical, new rep) without chaos.",
+  "Stop the stop-start marketing cycle where everything resets every month.",
+  "Keep the MSP's voice internal while getting the build work off the internal team's plate.",
 ];
 
 const painPoints = [
-  "Difficulty hiring skilled IT engineers in the U.S. market.",
-  "Rising payroll costs reducing margins.",
-  "Service desk burnout.",
-  "Ticket backlog accumulation.",
-  "Limited internal bandwidth for complex projects (cloud migrations, security upgrades).",
-  "Risk of SLA breaches.",
-  "Client churn risk due to delayed support.",
+  "\"Everything sits in draft.\"",
+  "Website updates take forever.",
+  "Sales asks for a one-pager and it becomes a two-week scramble.",
+  "The MSP pays outsiders, but still feels like nothing ships.",
+  "They do not want generic language because MSP buyers do not care about \"nuts and bolts,\" they care about outcomes.",
+  "They have to grow beyond referrals, but do not have the bandwidth to do the work consistently.",
 ];
 
 const goals = [
-  "Increase profit margins.",
-  "Improve utilization rates.",
-  "Scale operations without adding long-term headcount risk.",
-  "Deliver faster response times.",
-  "Strengthen service reliability.",
-  "Expand service offerings.",
-  "Grow recurring revenue.",
+  "Keep marketing direction in-house without hiring a full team.",
+  "Ship work every week so it stacks up over time (pages, proof, follow-ups).",
+  "Reduce reliance on referrals.",
+  "Make the website and materials look like a serious MSP, not a template.",
+  "Move faster during pushes without burning out the internal lead.",
 ];
+
+const BulletList = ({ items, numbered }: { items: string[]; numbered?: boolean }) => (
+  <div className="mt-1.5">
+    {numbered ? (
+      <ol className="list-decimal list-inside">
+        {items.map((item, i) => (
+          <li key={i} className="text-[11px] leading-relaxed mb-1.5 text-icp-value">{item}</li>
+        ))}
+      </ol>
+    ) : (
+      items.map((item, i) => (
+        <p key={i} className="text-[11px] leading-relaxed mb-1.5 text-icp-value">
+          <span className="text-icp-label mr-1">•</span>{item}
+        </p>
+      ))
+    )}
+  </div>
+);
 
 const BuyingCommitteeSection = () => (
   <div>
@@ -65,18 +80,18 @@ const BuyingCommitteeSection = () => (
       {/* Left: Buying Committee */}
       <div className="border-r border-icp-grid/30">
         {committeeData.map((item, i) => (
-          <div key={i} className="border-b border-icp-grid/20 last:border-b-0 px-2 py-1.5 bg-icp-cell">
-            <div className="text-[10px] leading-tight">
-              <div className="flex gap-1 items-start mb-0.5">
-                <span className="bg-icp-bar text-icp-bar-fg px-1.5 py-0.5 text-[8px] font-bold uppercase tracking-wide inline-block min-w-[80px] text-center">
+          <div key={i} className="border-b border-icp-grid/20 last:border-b-0 px-3 py-2.5 bg-icp-cell">
+            <div className="text-[11px] leading-relaxed">
+              <div className="flex gap-1 items-start mb-1">
+                <span className="bg-icp-bar text-icp-bar-fg px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide inline-block min-w-[90px] text-center">
                   {item.category}
                 </span>
               </div>
-              <div className="mt-0.5">
+              <div className="mt-1">
                 <Label>Title: </Label>
-                <span className="font-serif-italic text-[10px]"><Value>{item.title}</Value></span>
+                <span className="font-serif-italic"><Value>{item.title}</Value></span>
               </div>
-              <div className="mt-0.5">
+              <div className="mt-1">
                 <Label>Role: </Label>
                 <Value>{item.role}</Value>
               </div>
@@ -87,32 +102,17 @@ const BuyingCommitteeSection = () => (
 
       {/* Right: JTBD, Pain Points, Goals */}
       <div>
-        {/* Jobs to Be Done */}
-        <div className="border-b border-icp-grid/20 px-2 py-1.5 bg-icp-cell">
+        <div className="border-b border-icp-grid/20 px-3 py-2.5 bg-icp-cell">
           <Label>Jobs to Be Done</Label>
-          <ol className="mt-0.5 list-decimal list-inside">
-            {jobsToBeDone.map((item, i) => (
-              <li key={i} className="text-[9px] leading-[1.3] text-icp-value">{item}</li>
-            ))}
-          </ol>
+          <BulletList items={jobsToBeDone} numbered />
         </div>
-        {/* Pain Points */}
-        <div className="border-b border-icp-grid/20 px-2 py-1.5 bg-icp-cell">
+        <div className="border-b border-icp-grid/20 px-3 py-2.5 bg-icp-cell">
           <Label>Pain Points</Label>
-          <ol className="mt-0.5 list-decimal list-inside">
-            {painPoints.map((item, i) => (
-              <li key={i} className="text-[9px] leading-[1.3] text-icp-value">{item}</li>
-            ))}
-          </ol>
+          <BulletList items={painPoints} />
         </div>
-        {/* Goals */}
-        <div className="px-2 py-1.5 bg-icp-cell">
+        <div className="px-3 py-2.5 bg-icp-cell">
           <Label>Goals</Label>
-          <ol className="mt-0.5 list-decimal list-inside">
-            {goals.map((item, i) => (
-              <li key={i} className="text-[9px] leading-[1.3] text-icp-value">{item}</li>
-            ))}
-          </ol>
+          <BulletList items={goals} />
         </div>
       </div>
     </div>

@@ -1,42 +1,33 @@
 import { SectionBar, Label, Value } from "./ICPPrimitives";
 import { painMappings, painCards, objectionHandling, desireState } from "./messaging-data";
-import type { PainData, PersonaAngles } from "./messaging-data";
+import type { PainData } from "./messaging-data";
 
-const PersonaBlock: React.FC<{ data: PersonaAngles }> = ({ data }) => (
-  <div className="bg-icp-cell border border-icp-grid/20 p-5">
-    <h4 className="text-[13px] font-bold text-icp-label mb-4 pb-2 border-b border-icp-grid/20">
-      {data.persona}
-    </h4>
-    <div className="space-y-3">
-      {data.angles.map((angle, i) => (
-        <div key={i} className="flex items-start gap-2">
-          <span className="inline-block bg-muted text-[9px] font-bold text-icp-label px-2 py-0.5 mt-0.5 whitespace-nowrap shrink-0 uppercase tracking-wide">
-            {angle.type}
-          </span>
-          <span className="text-[11px] leading-relaxed text-icp-value">{angle.text}</span>
-        </div>
-      ))}
-    </div>
-  </div>
-);
-
-const PainCard: React.FC<{ data: PainData }> = ({ data }) => (
-  <div className="border border-icp-grid/30 bg-icp-cell">
-    <div className="bg-icp-bar text-icp-bar-fg px-6 py-3">
-      <h3 className="text-[13px] font-bold uppercase tracking-wider">{data.title}</h3>
-    </div>
-    {data.summary && (
-      <div className="px-6 py-4 border-b border-icp-grid/20">
-        <p className="text-[12px] leading-relaxed text-icp-value">{data.summary}</p>
-      </div>
-    )}
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-5">
-      {data.personas.map((persona, i) => (
-        <PersonaBlock key={i} data={persona} />
-      ))}
-    </div>
-  </div>
-);
+/* Build a matrix: collect all unique angle types across personas, then map each persona's text by type */
+const buildAngleMatrix = (pain: PainData) => {
+  const personaOrder = ["CEO", "Marketing", "COO", "Sales"];
+  // Collect all unique angle types in order of first appearance
+  const typeOrder: string[] = [];
+  const typeSet = new Set<string>();
+  for (const persona of pain.personas) {
+    for (const angle of persona.angles) {
+      const normalized = angle.type.charAt(0).toUpperCase() + angle.type.slice(1);
+      if (!typeSet.has(normalized)) {
+        typeSet.add(normalized);
+        typeOrder.push(normalized);
+      }
+    }
+  }
+  // Build lookup: persona -> type -> text
+  const lookup: Record<string, Record<string, string>> = {};
+  for (const persona of pain.personas) {
+    lookup[persona.persona] = {};
+    for (const angle of persona.angles) {
+      const normalized = angle.type.charAt(0).toUpperCase() + angle.type.slice(1);
+      lookup[persona.persona][normalized] = angle.text;
+    }
+  }
+  return { typeOrder, personaOrder, lookup };
+};
 
 const MessagingArchitectureTab = () => (
   <div>
@@ -116,12 +107,39 @@ const MessagingArchitectureTab = () => (
     <SectionBar>
       <div className="text-center">Messaging Angles by Pain</div>
     </SectionBar>
-    <div className="border-x border-b border-icp-grid/30 bg-background">
-      <div className="p-4 space-y-10">
-        {painCards.map((pain, i) => (
-          <PainCard key={i} data={pain} />
-        ))}
-      </div>
+    <div className="border-x border-b border-icp-grid/30">
+      {painCards.map((pain, i) => {
+        const { typeOrder, personaOrder, lookup } = buildAngleMatrix(pain);
+        return (
+          <div key={i} className={i > 0 ? "mt-10" : ""}>
+            {/* Pain header bar */}
+            <div className="bg-icp-bar text-icp-bar-fg px-4 py-2">
+              <h3 className="text-[12px] font-bold uppercase tracking-wider">{pain.title}</h3>
+            </div>
+            {/* Table header */}
+            <div className="grid grid-cols-[140px_1fr_1fr_1fr_1fr] bg-muted/50 border-b border-icp-grid/20">
+              {["Angle Type", "CEO", "Marketing", "COO", "Sales"].map((h) => (
+                <div key={h} className="px-3 py-2 text-[11px] font-bold border-r border-icp-grid/20 last:border-r-0 text-center">
+                  {h}
+                </div>
+              ))}
+            </div>
+            {/* Angle rows */}
+            {typeOrder.map((angleType, j) => (
+              <div key={j} className="grid grid-cols-[140px_1fr_1fr_1fr_1fr] border-b border-icp-grid/20 last:border-b-0">
+                <div className="px-3 py-2.5 text-[11px] font-bold bg-muted/50 border-r border-icp-grid/20">
+                  {angleType}
+                </div>
+                {personaOrder.map((persona) => (
+                  <div key={persona} className="px-3 py-2.5 text-[11px] leading-relaxed text-icp-value border-r border-icp-grid/20 last:border-r-0 bg-icp-cell">
+                    {lookup[persona]?.[angleType] || ""}
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        );
+      })}
     </div>
 
     {/* Objection Handling */}

@@ -62,10 +62,10 @@ const Index = () => {
         {/* Main title bar */}
         <SectionBar>
           <div className="text-center text-[13px] tracking-widest">
-        {activeTab === "icp" && "MSP MARKETING PRODUCTION – ICP"}
+            {activeTab === "icp" && "MANAGED SERVICE PROVIDERS (MSPs) – MARKETING EXECUTION MODEL"}
             {activeTab === "personas" && "MSP MARKETING PRODUCTION – BUYER PERSONAS"}
-            {activeTab === "messaging" && "MSP MARKETING PRODUCTION – MESSAGING ARCHITECTURE"}
-            {activeTab === "funnel" && "MSP MARKETING PRODUCTION – FUNNEL & EXECUTION"}
+            {activeTab === "messaging" && "MANAGED SERVICE PROVIDERS (MSP) – MESSAGING ARCHITECTURE"}
+            {activeTab === "funnel" && "MANAGED SERVICE PROVIDER (MSP) – FUNNEL & EXECUTION"}
           </div>
         </SectionBar>
 

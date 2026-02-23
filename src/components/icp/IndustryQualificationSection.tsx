@@ -1,40 +1,47 @@
 import { SectionBar, GridCell, Label, Value, VerticalLabel } from "./ICPPrimitives";
 
 const industries = [
-  "Healthcare practices",
-  "Legal firms",
-  "Financial services",
-  "Manufacturing",
-  "Multi-location retail",
-  "Professional services",
-  "General SMB",
+  "Small & Mid-Sized Businesses (SMBs)",
+  "Healthcare Practices",
+  "Legal Firms",
+  "Financial Services Firms",
+  "Manufacturing Companies",
+  "Professional Services",
+  "Multi-location businesses",
 ];
 
+const industryNote = "Many position themselves as specialized providers but lack consistent vertical pages and documented proof to support that positioning.";
+
 const solutions = [
-  "Managed IT (helpdesk, patching, monitoring)",
-  "Microsoft 365 and cloud projects",
-  "Security packages (EDR/MDR stack, awareness, basic compliance support)",
-  "Backup and disaster recovery",
-  "vCIO/QBR advisory",
+  "Managed IT Support (Help Desk, Monitoring, Endpoint Management)",
+  "Microsoft 365 & Cloud Services",
+  "Cybersecurity Services (EDR, MDR, Compliance Support)",
+  "Backup & Disaster Recovery",
+  "vCIO / Advisory Services",
 ];
 
 const goodFit = [
-  "They are tired of paying \"marketing companies\" that sell hard but do not deliver what was pitched.",
-  "They want to keep marketing direction internal because they believe \"we are the voice.\"",
-  "They already know what they want to say, but the work sits in draft.",
-];
-
-const currentNeeds = [
-  "They have a backlog of website updates, case studies, one-pagers, vertical pages, email templates, and follow-ups.",
-  "They are trying to grow beyond \"referrals and sheer luck.\"",
-  "They do not want a vendor to take over the message. They want extra hands that can follow their direction.",
+  "MSP wants to keep marketing direction and messaging internal.",
+  "There is at least one internal marketing owner.",
+  "Marketing backlog exists (pages, case studies, collateral waiting to ship).",
+  "Website does not reflect actual service maturity.",
+  "Sales regularly requests updated materials that are not ready.",
+  "Competitors are visibly more active online.",
+  "MSP recognizes digital presence impacts perceived credibility and pricing.",
+  "They have experienced disappointment with traditional marketing agencies.",
+  "They prefer structured production support over full strategy outsourcing.",
+  "They want predictable cost without long-term payroll expansion.",
+  "They understand that consistent output compounds over time.",
 ];
 
 const badFit = [
-  "No one internally owns marketing. They want a vendor to \"figure it all out\" with no internal direction.",
-  "They want guaranteed results without doing the basic work (site pages, proof, follow-up, sales enablement).",
-  "They want a \"magic lead machine\" and get angry when it is a long game.",
-  "They refuse any process for requests, approvals, and handoffs.",
+  "No internal marketing ownership.",
+  "Wants a third party to fully control positioning and messaging.",
+  "Expects guaranteed leads without investing in foundational assets.",
+  "Refuses structured request and approval workflows.",
+  "Only interested in isolated one-off tasks.",
+  "Does not see competitive digital presence as important.",
+  "Unwilling to commit to consistent production rhythm.",
 ];
 
 const BulletList = ({ items, className = "" }: { items: string[]; className?: string }) => (
@@ -68,6 +75,9 @@ const IndustryQualificationSection = () => (
             <Value>{ind}</Value>
           </GridCell>
         ))}
+        <div className="px-3 py-2 text-[10px] leading-relaxed bg-icp-cell italic text-icp-value">
+          {industryNote}
+        </div>
       </div>
 
       {/* Solutions vertical label + list */}
@@ -87,10 +97,6 @@ const IndustryQualificationSection = () => (
         </GridCell>
         <div className="px-3 py-2 bg-icp-cell">
           <BulletList items={goodFit} />
-          <div className="mt-3 pt-2 border-t border-icp-grid/20">
-            <Label>Current Marketing Needs</Label>
-            <BulletList items={currentNeeds} className="mt-1" />
-          </div>
         </div>
       </div>
 

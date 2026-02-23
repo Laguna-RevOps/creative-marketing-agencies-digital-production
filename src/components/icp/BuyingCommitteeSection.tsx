@@ -2,52 +2,62 @@ import { SectionBar, Label, Value } from "./ICPPrimitives";
 
 const committeeData = [
   {
-    category: "Champion",
-    title: "Marketing manager or fractional CMO",
-    role: "Wants production help, not someone trying to run the company's message.",
+    category: "Champions",
+    title: "Marketing Manager, Marketing Coordinator, Fractional CMO",
+    role: "Owns marketing roadmap, messaging, and campaign priorities. Knows what needs to be built but lacks the production bandwidth to execute consistently. Seeks reliable design, web, and content support while retaining strategic control.",
   },
   {
-    category: "Decision Maker",
-    title: "Owner/CEO",
-    role: "Skeptical, has likely been burned, wants clear cost and clear output.",
+    category: "Decision Makers",
+    title: "CEO, Founder, Managing Partner",
+    role: "Owns growth, margin, and vendor approval decisions. Skeptical of marketing vendors due to past disappointments. Focused on cost predictability, visible output, and protecting brand control.",
   },
   {
-    category: "Influencer",
-    title: "Head of Sales",
-    role: "Needs pages and collateral ready before outreach and follow-up.",
+    category: "Influencers",
+    title: "Head of Sales, Business Development Lead, vCIO",
+    role: "Requires updated landing pages, case studies, and collateral aligned with live sales conversations. Feels the impact when materials are delayed or outdated.",
   },
   {
     category: "Blockers",
-    title: "Finance/ops",
-    role: "Hates vague scope, hates \"ongoing projects,\" wants clarity.",
+    title: "Finance Lead / Controller, Operations Manager",
+    role: "Evaluates cost structure, scope clarity, and operational efficiency. Ensures recurring spend is predictable and justifiable compared to full-time hiring.",
   },
 ];
 
 const jobsToBeDone = [
-  "Keep the website current so it does not look stale next to competitors.",
-  "Turn internal \"we're good at X\" into actual pages and proof, not just internal talk.",
-  "Produce case studies and proof assets consistently.",
-  "Keep sales materials updated so reps stop winging it.",
-  "Support launches (new security package, new vertical, new rep) without chaos.",
-  "Stop the stop-start marketing cycle where everything resets every month.",
-  "Keep the MSP's voice internal while getting the build work off the internal team's plate.",
+  "Keep website content current and aligned with real service capability.",
+  "Turn internal expertise into visible proof assets.",
+  "Support sales with ready-to-use collateral and landing pages.",
+  "Launch vertical or cybersecurity initiatives without execution delays.",
+  "Maintain consistent output of content and marketing materials.",
+  "Keep pace with competitors that publish frequently.",
+  "Reduce dependency on referral-only growth.",
+  "Expand marketing capacity without hiring a full internal department.",
 ];
 
 const painPoints = [
-  "\"Everything sits in draft.\"",
-  "Website updates take forever.",
-  "Sales asks for a one-pager and it becomes a two-week scramble.",
-  "The MSP pays outsiders, but still feels like nothing ships.",
-  "They do not want generic language because MSP buyers do not care about \"nuts and bolts,\" they care about outcomes.",
-  "They have to grow beyond referrals, but do not have the bandwidth to do the work consistently.",
+  "Marketing projects stall before completion.",
+  "Website messaging lags behind actual delivery capabilities.",
+  "Case studies are outdated or incomplete.",
+  "Sales materials are reactive and assembled last minute.",
+  "One internal marketing lead becomes the bottleneck.",
+  "Agency engagements felt slow, generic, or unclear in value.",
+  "Competitors appear more specialized due to higher publishing volume.",
+  "Inconsistent marketing reduces perceived authority.",
+  "Referral fluctuations create pipeline instability.",
+  "Hiring multiple full-time marketing roles is financially risky.",
+  "Campaign execution lacks consistency.",
+  "Digital presence does not match service quality.",
 ];
 
 const goals = [
-  "Keep marketing direction in-house without hiring a full team.",
-  "Ship work every week so it stacks up over time (pages, proof, follow-ups).",
-  "Reduce reliance on referrals.",
-  "Make the website and materials look like a serious MSP, not a template.",
-  "Move faster during pushes without burning out the internal lead.",
+  "Maintain control of messaging internally.",
+  "Increase consistency of marketing output.",
+  "Improve competitive positioning online.",
+  "Support outbound and sales growth initiatives.",
+  "Build visible vertical authority.",
+  "Keep marketing costs predictable.",
+  "Avoid unnecessary payroll expansion.",
+  "Strengthen credibility to protect pricing power.",
 ];
 
 const BulletList = ({ items, numbered }: { items: string[]; numbered?: boolean }) => (

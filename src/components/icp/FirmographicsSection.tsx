@@ -1,22 +1,19 @@
 import { SectionBar, GridCell, Label, Value } from "./ICPPrimitives";
 
 const firmographicsData = [
-  { label: "Target Industry", value: "Privately owned MSPs selling recurring managed IT and security to SMBs and lower mid-market." },
-  { label: "Company Size", value: "8–40 employees. Big enough to have a real delivery org, small enough that marketing is one person wearing too many hats." },
-  { label: "Revenue Range", value: "$3M–$12M (mostly recurring contracts)." },
-  { label: "Location", value: "U.S.-based, usually regional. Often strong in one metro or a few neighboring states." },
-  {
-    label: "Internal Setup",
-    value: "Owner/CEO still involved in growth decisions. 1 internal marketing lead or fractional CMO. 1–5 sales reps (or owner-led sales).",
-  },
+  { label: "Target Industry", value: "Managed Service Providers (MSPs)" },
+  { label: "Company Size", value: "5–50 employees" },
+  { label: "Annual Revenue", value: "$2M–$15M" },
+  { label: "Location", value: "United States" },
+  { label: "Company Age", value: "3+ Years" },
 ];
 
 const techStacks = [
-  { label: "CRM / Sales", value: "HubSpot, Zoho, Salesforce, ConnectWise Sell. A CRM exists, but the \"marketing side\" is often underused because no one has time." },
-  { label: "Website / CMS", value: "WordPress is common. Webflow sometimes. Website exists, but updates move slow. Some MSPs are still catching up on basics." },
-  { label: "Email / Outreach", value: "Basic newsletters, occasional sequences, inconsistent sends because production work piles up." },
-  { label: "Ads / Tracking", value: "Google Ads or LinkedIn Ads \"on and off,\" usually paused when results feel unclear or when the vendor relationship goes sideways." },
-  { label: "Reporting", value: "Basic dashboards exist, but someone is stitching reports manually when leadership asks." },
+  { label: "CRM Systems", value: "HubSpot, Zoho, Salesforce, ConnectWise Sell" },
+  { label: "Website / CMS", value: "WordPress, Webflow" },
+  { label: "Email & Automation", value: "Basic newsletter cadence, limited automation sequences" },
+  { label: "Advertising Platforms", value: "Google Ads, LinkedIn Ads (intermittent campaigns)" },
+  { label: "Tracking", value: "GA4, Tag Manager, call tracking (often partially implemented)" },
 ];
 
 const FirmographicsSection = () => (

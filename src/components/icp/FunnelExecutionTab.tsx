@@ -4,48 +4,52 @@ import { SectionBar, Label, Value } from "./ICPPrimitives";
 const funnelStages = [
   {
     stage: "Unaware",
-    description: "They have not named the problem yet. They just feel the drag.",
     themes: [
-      "\"If your website still looks generic, you're going to get compared on price.\"",
-      "\"If nothing ever gets finished, it's not because you're lazy. It's because one person can't do five jobs.\"",
-      "\"Referrals are great until they slow down.\"",
+      "If your website hasn't changed in a year, your competitors have.",
+      "Marketing doesn't stall because of ideas. It stalls because of bandwidth.",
+      "Referral growth hides execution gaps until it slows.",
+      "One internal marketing person cannot do design, web, content, and campaign ops alone.",
+      "Competitors look specialized because they publish consistently.",
     ],
   },
   {
     stage: "Problem Aware",
-    description: "They can name the headaches.",
     themes: [
-      "\"We've got a backlog a mile long.\"",
-      "\"We pay for help and still don't see output.\"",
-      "\"We keep saying we'll update the site, then months go by.\"",
-      "\"Marketing is hard because nobody cares about the technical guts, they care about outcomes.\"",
+      "Website updates should not take months.",
+      "Sales should not wait for landing pages.",
+      "Case studies should not sit unfinished.",
+      "Hiring a full team is not the only option.",
+      "Freelancers create inconsistency and rework.",
     ],
   },
   {
     stage: "Solution Aware",
-    description: "They are looking for a model that fits an MSP.",
     themes: [
-      "\"We want to keep our voice in-house, but we need extra hands.\"",
-      "\"I don't want a full department. I want a bench.\"",
-      "\"I want predictable monthly cost, not another salary.\"",
+      "Keep strategy internal. Add execution capacity behind it.",
+      "Consistent production beats sporadic campaigns.",
+      "Flexible monthly support is safer than payroll expansion.",
+      "Structured production reduces chaos.",
+      "Output compounds when it ships regularly.",
     ],
   },
   {
     stage: "Product Aware",
-    description: "They're comparing options.",
     themes: [
-      "\"Do you understand MSP language or are we translating everything?\"",
-      "\"Are you going to build what we ask for, or try to run our marketing?\"",
-      "\"What do we actually get each month and how fast does it move?\"",
+      "Dedicated production team aligned to your workflow.",
+      "Design, web, content, and campaign assets under one model.",
+      "Clear monthly capacity allocation.",
+      "Structured request and approval system.",
+      "No loss of messaging control.",
     ],
   },
   {
     stage: "Most Aware",
-    description: "They're ready to pick and want clarity.",
     themes: [
-      "\"We're done gambling on marketing companies.\"",
-      "\"We want in-house control plus consistent output.\"",
-      "\"We need to get past referrals this year.\"",
+      "Compare cost of 3 hires vs structured production support.",
+      "Calculate current backlog time cost.",
+      "Evaluate how many assets ship per quarter.",
+      "Measure competitor publishing cadence.",
+      "Decide whether internal bandwidth matches growth goals.",
     ],
   },
 ];
@@ -53,98 +57,82 @@ const funnelStages = [
 /* ── Buying Triggers to Activation Plays ── */
 const triggerPlays = [
   {
-    trigger: "Referral slowdown",
-    play: "\"Backlog clean-up month\"",
-    actions: [
-      "Update core service pages",
-      "Add or fix vertical pages",
-      "Create 1–2 case studies",
-      "Refresh sales deck and one-pagers",
-      "Build follow-up templates (email + simple PDFs)",
-    ],
+    title: "Referral Slowdown",
+    trigger: "Referral volume declines or becomes inconsistent.",
+    reason: "Pipeline no longer feels stable.",
+    play: "Immediate website refresh, vertical page build, sales asset audit, and outbound support bundle.",
   },
   {
-    trigger: "New security offer or security refresh",
-    play: "\"Security credibility pack\"",
-    actions: [
-      "Rewrite and rebuild security pages in plain English",
-      "Proof points and FAQs",
-      "Case study format and first case study",
-      "Sales one-pager + basic follow-up assets",
-    ],
+    title: "New Sales Hire",
+    trigger: "MSP hires a new sales rep.",
+    reason: "Sales needs structure and materials before outreach scales.",
+    play: "Landing page buildout, one-pager refresh, email follow-up sequence, and campaign support kit.",
   },
   {
-    trigger: "Hiring a new sales rep",
-    play: "\"Sales ramp kit\"",
-    actions: [
-      "Updated deck",
-      "One-pagers by service",
-      "Vertical proof sheets",
-      "Email templates for outreach",
-    ],
+    title: "Cybersecurity Push",
+    trigger: "MSP updates or emphasizes security services.",
+    reason: "Security positioning must be credible and clear.",
+    play: "Security page rebuild, proof asset creation, security comparison sheet, webinar landing page.",
   },
   {
-    trigger: "Entering a new vertical",
-    play: "\"Vertical kit\"",
-    actions: [
-      "Vertical page",
-      "Vertical one-pager",
-      "Proof asset (case study or customer story)",
-      "A small bundle of outreach follow-ups",
-    ],
+    title: "Vertical Expansion",
+    trigger: "MSP targets healthcare, legal, finance, etc.",
+    reason: "Must appear specialized quickly.",
+    play: "Dedicated vertical page, tailored case study formatting, industry-specific one-pager.",
   },
   {
-    trigger: "Event or conference coming up",
-    play: "\"Event bundle\"",
-    actions: [
-      "Event landing page",
-      "Invite email templates",
-      "Follow-up templates",
-      "Handout PDF",
-    ],
+    title: "Agency Dissatisfaction",
+    trigger: "Current marketing vendor relationship ends or underperforms.",
+    reason: "MSP wants control without losing production velocity.",
+    play: "Transition production in-house with structured request system and asset backlog clearance.",
   },
 ];
 
 /* ── Execution Formats Matrix ── */
 const executionFormats = [
   {
-    stage: "Unaware: \"Quick hits\"",
+    stage: "Unaware",
     formats: [
-      "Owner note: what changed, what broke, what we learned",
-      "A short list: \"If these are true, you've got a capacity problem\"",
-      "Simple comparison: \"Why most MSP websites all look the same\"",
+      "Founder perspective post",
+      "Website before/after audit comparison",
+      "\"How many assets shipped last quarter?\" diagnostic",
+      "Competitive visibility comparison breakdown",
     ],
   },
   {
-    stage: "Problem Aware: \"Show the backlog\"",
+    stage: "Problem Aware",
     formats: [
-      "A real backlog list: what's stuck and why",
-      "Before/after examples using plain language",
-      "\"Here's what we tried that didn't work\" (freelancers, vendors, stop-start efforts)",
+      "Backlog audit checklist",
+      "Sales collateral gap analysis",
+      "Website maturity scorecard",
+      "\"Hiring vs Production Support\" cost breakdown sheet",
     ],
   },
   {
-    stage: "Solution Aware: \"Explain the model\"",
+    stage: "Solution Aware",
     formats: [
-      "Bench vs hire: simple roles and simple dollars",
-      "\"You stay the voice\" explanation with clear boundaries",
-      "How requests and approvals work so nothing gets lost",
+      "Production workflow diagram",
+      "Monthly capacity model explanation",
+      "Case example of backlog reduction",
+      "Before/after asset velocity comparison",
     ],
   },
   {
-    stage: "Product Aware: \"Make it concrete\"",
+    stage: "Product Aware",
     formats: [
-      "What's included each month",
-      "What \"done\" looks like for common MSP assets",
-      "How fast work moves and how reviews work",
+      "Scope breakdown document",
+      "Onboarding timeline overview",
+      "Sample request workflow",
+      "Production turnaround benchmarks",
     ],
   },
   {
-    stage: "Most Aware: \"Make the next step obvious\"",
+    stage: "Most Aware",
     formats: [
-      "Start with a backlog clean-up month",
-      "Then move to a monthly bucket",
-      "Scale up for pushes, scale down after",
+      "Cost comparison calculator",
+      "Backlog clearing plan",
+      "Capacity planning worksheet",
+      "Implementation roadmap overview",
     ],
   },
 ];
@@ -163,9 +151,6 @@ const FunnelExecutionTab = () => (
               <h3 className="text-[13px] font-bold uppercase tracking-wider">{stage.stage}</h3>
             </div>
             <div className="px-5 py-4">
-              <p className="text-[12px] leading-relaxed text-icp-value mb-3 italic">
-                {stage.description}
-              </p>
               <div className="space-y-2">
                 {stage.themes.map((theme, i) => (
                   <p key={i} className="text-[11px] leading-relaxed text-icp-value">
@@ -188,17 +173,16 @@ const FunnelExecutionTab = () => (
         {triggerPlays.map((item, i) => (
           <div key={i} className="border border-icp-grid/30 bg-icp-cell">
             <div className="px-5 py-4">
-              <p className="text-[13px] font-bold text-icp-label mb-1">{item.trigger}</p>
-              <p className="text-[12px] text-icp-value mb-3 pl-3">
-                <Label>Play: </Label><Value>{item.play}</Value>
+              <p className="text-[13px] font-bold text-icp-label mb-1">{item.title}</p>
+              <p className="text-[11px] leading-relaxed text-icp-value pl-3 mb-0.5">
+                <Label>Trigger: </Label><Value>{item.trigger}</Value>
               </p>
-              <div className="pl-3 space-y-1.5">
-                {item.actions.map((action, j) => (
-                  <p key={j} className="text-[11px] leading-relaxed text-icp-value">
-                    <span className="text-icp-label mr-1.5">•</span>{action}
-                  </p>
-                ))}
-              </div>
+              <p className="text-[11px] leading-relaxed text-icp-value pl-3 mb-1.5">
+                <Label>Reason: </Label><Value>{item.reason}</Value>
+              </p>
+              <p className="text-[11px] leading-relaxed text-icp-value pl-3">
+                <Label>Activation Play: </Label><Value>{item.play}</Value>
+              </p>
             </div>
           </div>
         ))}
@@ -209,23 +193,30 @@ const FunnelExecutionTab = () => (
     <SectionBar>
       <div className="text-center">Execution Formats Matrix</div>
     </SectionBar>
-    <div className="border-x border-b border-icp-grid/30 bg-background p-5">
-      <div className="space-y-6">
-        {executionFormats.map((block, i) => (
-          <div key={i} className="border border-icp-grid/30 bg-icp-cell">
-            <div className="bg-muted/60 border-b border-icp-grid/20 px-5 py-2.5">
-              <h3 className="text-[12px] font-bold text-icp-label">{block.stage}</h3>
-            </div>
-            <div className="px-5 py-4 space-y-2">
-              {block.formats.map((format, j) => (
-                <p key={j} className="text-[11px] leading-relaxed text-icp-value">
-                  <span className="text-icp-label mr-1.5">•</span>{format}
-                </p>
-              ))}
-            </div>
-          </div>
-        ))}
+    <div className="border-x border-b border-icp-grid/30">
+      {/* Column headers */}
+      <div className="grid grid-cols-2 bg-muted/50 border-b border-icp-grid/20">
+        <div className="px-3 py-2 text-[11px] font-bold border-r border-icp-grid/20 text-center">
+          Awareness Stage
+        </div>
+        <div className="px-3 py-2 text-[11px] font-bold text-center">
+          Best Formats
+        </div>
       </div>
+      {executionFormats.map((block, i) => (
+        <div key={i} className="grid grid-cols-2 border-b border-icp-grid/20 last:border-b-0">
+          <div className="px-3 py-2.5 text-[11px] font-bold bg-muted/50 border-r border-icp-grid/20">
+            {block.stage}
+          </div>
+          <div className="px-3 py-2.5 bg-icp-cell">
+            {block.formats.map((format, j) => (
+              <p key={j} className="text-[11px] leading-relaxed text-icp-value mb-1 last:mb-0">
+                <span className="text-icp-label mr-1.5">•</span>{format}
+              </p>
+            ))}
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 );

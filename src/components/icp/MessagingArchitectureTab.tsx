@@ -25,10 +25,12 @@ const PainCard: React.FC<{ data: PainData }> = ({ data }) => (
     <div className="bg-icp-bar text-icp-bar-fg px-6 py-3">
       <h3 className="text-[13px] font-bold uppercase tracking-wider">{data.title}</h3>
     </div>
-    <div className="px-6 py-4 border-b border-icp-grid/20">
-      <p className="text-[12px] leading-relaxed text-icp-value">{data.summary}</p>
-    </div>
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 p-5">
+    {data.summary && (
+      <div className="px-6 py-4 border-b border-icp-grid/20">
+        <p className="text-[12px] leading-relaxed text-icp-value">{data.summary}</p>
+      </div>
+    )}
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 p-5">
       {data.personas.map((persona, i) => (
         <PersonaBlock key={i} data={persona} />
       ))}
@@ -44,19 +46,31 @@ const MessagingArchitectureTab = () => (
     </SectionBar>
     <div className="border-x border-b border-icp-grid/30 bg-icp-cell px-5 py-4">
       <p className="text-[12px] leading-relaxed text-icp-value mb-2">
-        MSPs do not want outsiders "running marketing."
+        MSPs do not want another marketing agency running strategy.
       </p>
       <p className="text-[12px] leading-relaxed text-icp-value mb-2">
-        They want to keep it in-house because they know their customers better than anyone, and they do not want their voice rewritten by someone who does not understand the business.
+        They want to keep control of messaging because they understand their clients, services, and positioning better than an outsider.
       </p>
       <p className="text-[12px] leading-relaxed text-icp-value mb-2">
-        But they also know one person cannot do everything.
+        The breakdown is not direction.
       </p>
       <p className="text-[12px] leading-relaxed text-icp-value mb-2">
-        So the core message is simple: <Label>You stay the voice. You set direction. We do the build work so it actually ships.</Label>
+        The breakdown is execution.
       </p>
+      <p className="text-[12px] leading-relaxed text-icp-value mb-2">
+        Marketing slows when one internal person is responsible for planning, design, web updates, content production, and campaign coordination.
+      </p>
+      <p className="text-[12px] leading-relaxed text-icp-value mb-2">
+        <Label>Messaging must lead with:</Label>
+      </p>
+      <div className="pl-3 mb-2">
+        <p className="text-[12px] leading-relaxed text-icp-value">• Execution bottlenecks</p>
+        <p className="text-[12px] leading-relaxed text-icp-value">• Competitive digital pressure</p>
+        <p className="text-[12px] leading-relaxed text-icp-value">• Sales enablement delays</p>
+        <p className="text-[12px] leading-relaxed text-icp-value">• Hiring risk</p>
+      </div>
       <p className="text-[12px] leading-relaxed text-icp-value">
-        Also important: MSP marketing is hard because buyers do not care about the technical guts. They care about outcomes, reassurance, and proof.
+        Then position the solution as: <Label>In-house control + consistent production support without adding fixed payroll.</Label>
       </p>
     </div>
 
@@ -66,8 +80,8 @@ const MessagingArchitectureTab = () => (
     </SectionBar>
     <div className="border-x border-b border-icp-grid/30">
       {/* Column headers */}
-      <div className="grid grid-cols-[200px_1fr_1fr_1fr] bg-muted/50 border-b border-icp-grid/20">
-        {["Pain", "Owner / CEO", "Marketing Manager / Fractional CMO", "Head of Sales"].map((h) => (
+      <div className="grid grid-cols-[160px_1fr_1fr_1fr_1fr_100px] bg-muted/50 border-b border-icp-grid/20">
+        {["Pain", "CEO", "COO", "Marketing", "Sales", "Emotional Lever"].map((h) => (
           <div key={h} className="px-3 py-2 text-[11px] font-bold border-r border-icp-grid/20 last:border-r-0 text-center">
             {h}
           </div>
@@ -75,18 +89,24 @@ const MessagingArchitectureTab = () => (
       </div>
       {/* Rows */}
       {painMappings.map((row, i) => (
-        <div key={i} className="grid grid-cols-[200px_1fr_1fr_1fr] border-b border-icp-grid/20 last:border-b-0">
+        <div key={i} className="grid grid-cols-[160px_1fr_1fr_1fr_1fr_100px] border-b border-icp-grid/20 last:border-b-0">
           <div className="px-3 py-2.5 text-[11px] font-bold bg-muted/50 border-r border-icp-grid/20">
             {row.pain}
           </div>
           <div className="px-3 py-2.5 text-[11px] leading-relaxed text-icp-value border-r border-icp-grid/20 bg-icp-cell">
-            {row.owner}
+            {row.ceo}
+          </div>
+          <div className="px-3 py-2.5 text-[11px] leading-relaxed text-icp-value border-r border-icp-grid/20 bg-icp-cell">
+            {row.coo}
           </div>
           <div className="px-3 py-2.5 text-[11px] leading-relaxed text-icp-value border-r border-icp-grid/20 bg-icp-cell">
             {row.marketing}
           </div>
-          <div className="px-3 py-2.5 text-[11px] leading-relaxed text-icp-value bg-icp-cell">
+          <div className="px-3 py-2.5 text-[11px] leading-relaxed text-icp-value border-r border-icp-grid/20 bg-icp-cell">
             {row.sales}
+          </div>
+          <div className="px-3 py-2.5 text-[10px] leading-relaxed text-icp-label font-bold bg-muted/50 text-center">
+            {row.emotionalLever}
           </div>
         </div>
       ))}
@@ -117,9 +137,9 @@ const MessagingArchitectureTab = () => (
       ))}
     </div>
 
-    {/* Desire State */}
+    {/* Desired State */}
     <SectionBar>
-      <div className="text-center">Desire State</div>
+      <div className="text-center">Desired State</div>
     </SectionBar>
     <div className="border-x border-b border-icp-grid/30 bg-icp-cell px-5 py-4">
       {desireState.map((item, i) => (

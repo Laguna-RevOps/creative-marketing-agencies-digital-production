@@ -1,11 +1,10 @@
 import { SectionBar, Value } from "./ICPPrimitives";
 
 const whereData = [
-  { label: "Reddit", value: "r/MSP (asking blunt questions, sharing vendor experiences)" },
-  { label: "Communities", value: "Vendor communities and peer groups" },
-  { label: "LinkedIn", value: "Owners and sales leaders, more than engineers" },
-  { label: "Events", value: "Conferences and local industry meetups" },
-  { label: "Search", value: "Google (prospect research, competitor comparison)" },
+  { label: "Communities", value: "MSP peer groups, vendor ecosystems, industry forums" },
+  { label: "Professional Platforms", value: "LinkedIn" },
+  { label: "Industry Events", value: "Channel conferences, vendor roadshows, regional MSP meetups" },
+  { label: "Research Behavior", value: "Competitor website comparison, service positioning review, security offering analysis" },
 ];
 
 const WhereUsersSection = () => (

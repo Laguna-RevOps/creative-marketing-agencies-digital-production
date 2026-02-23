@@ -1,32 +1,19 @@
 import { SectionBar, Label, Value } from "./ICPPrimitives";
-import { painMappings, painCards, objectionHandling, desireState } from "./messaging-data";
+import { painMappings, painCards, objectionHandling, desireState, ANGLE_TYPE_ORDER } from "./messaging-data";
 import type { PainData } from "./messaging-data";
 
-/* Build a matrix: collect all unique angle types across personas, then map each persona's text by type */
-const buildAngleMatrix = (pain: PainData) => {
-  const personaOrder = ["CEO", "Marketing", "COO", "Sales"];
-  // Collect all unique angle types in order of first appearance
-  const typeOrder: string[] = [];
-  const typeSet = new Set<string>();
-  for (const persona of pain.personas) {
-    for (const angle of persona.angles) {
-      const normalized = angle.type.charAt(0).toUpperCase() + angle.type.slice(1);
-      if (!typeSet.has(normalized)) {
-        typeSet.add(normalized);
-        typeOrder.push(normalized);
-      }
-    }
-  }
-  // Build lookup: persona -> type -> text
+const PERSONA_ORDER = ["CEO", "Marketing", "COO", "Sales"];
+
+/* Build lookup: persona -> angleType -> text */
+const buildLookup = (pain: PainData) => {
   const lookup: Record<string, Record<string, string>> = {};
   for (const persona of pain.personas) {
     lookup[persona.persona] = {};
     for (const angle of persona.angles) {
-      const normalized = angle.type.charAt(0).toUpperCase() + angle.type.slice(1);
-      lookup[persona.persona][normalized] = angle.text;
+      lookup[persona.persona][angle.type] = angle.text;
     }
   }
-  return { typeOrder, personaOrder, lookup };
+  return lookup;
 };
 
 const MessagingArchitectureTab = () => (
@@ -109,7 +96,7 @@ const MessagingArchitectureTab = () => (
     </SectionBar>
     <div className="border-x border-b border-icp-grid/30">
       {painCards.map((pain, i) => {
-        const { typeOrder, personaOrder, lookup } = buildAngleMatrix(pain);
+        const lookup = buildLookup(pain);
         return (
           <div key={i} className={i > 0 ? "mt-10" : ""}>
             {/* Pain header bar */}
@@ -124,13 +111,13 @@ const MessagingArchitectureTab = () => (
                 </div>
               ))}
             </div>
-            {/* Angle rows */}
-            {typeOrder.map((angleType, j) => (
+            {/* Angle rows — fixed order */}
+            {ANGLE_TYPE_ORDER.map((angleType, j) => (
               <div key={j} className="grid grid-cols-[140px_1fr_1fr_1fr_1fr] border-b border-icp-grid/20 last:border-b-0">
                 <div className="px-3 py-2.5 text-[11px] font-bold bg-muted/50 border-r border-icp-grid/20">
                   {angleType}
                 </div>
-                {personaOrder.map((persona) => (
+                {PERSONA_ORDER.map((persona) => (
                   <div key={persona} className="px-3 py-2.5 text-[11px] leading-relaxed text-icp-value border-r border-icp-grid/20 last:border-r-0 bg-icp-cell">
                     {lookup[persona]?.[angleType] || ""}
                   </div>

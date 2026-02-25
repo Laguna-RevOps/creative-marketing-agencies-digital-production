@@ -1,8 +1,8 @@
-import { SectionBar, Label, Value } from "./ICPPrimitives";
+import { SectionBar, Label } from "./ICPPrimitives";
 import { painMappings, painCards, objectionHandling, desireState, ANGLE_TYPE_ORDER } from "./messaging-data";
 import type { PainData } from "./messaging-data";
 
-const PERSONA_ORDER = ["CEO", "Marketing", "COO", "Sales"];
+const PERSONA_ORDER = ["CEO", "COO", "Client Services", "Creative"];
 
 /* Build lookup: persona -> angleType -> text */
 const buildLookup = (pain: PainData) => {
@@ -24,31 +24,28 @@ const MessagingArchitectureTab = () => (
     </SectionBar>
     <div className="border-x border-b border-icp-grid/30 bg-icp-cell px-5 py-4">
       <p className="text-[12px] leading-relaxed text-icp-value mb-2">
-        MSPs do not want another marketing agency running strategy.
+        Creative and digital agencies do not need outsourced strategy.
       </p>
       <p className="text-[12px] leading-relaxed text-icp-value mb-2">
-        They want to keep control of messaging because they understand their clients, services, and positioning better than an outsider.
+        They keep strategy, client ownership, and creative direction in-house.
       </p>
       <p className="text-[12px] leading-relaxed text-icp-value mb-2">
-        The breakdown is not direction.
+        The recurring breakdown is execution volatility, not strategic clarity.
       </p>
       <p className="text-[12px] leading-relaxed text-icp-value mb-2">
-        The breakdown is execution.
-      </p>
-      <p className="text-[12px] leading-relaxed text-icp-value mb-2">
-        Marketing slows when one internal person is responsible for planning, design, web updates, content production, and campaign coordination.
+        Growth pressure rises when campaign demand outpaces production capacity.
       </p>
       <p className="text-[12px] leading-relaxed text-icp-value mb-2">
         <Label>Messaging must lead with:</Label>
       </p>
       <div className="pl-3 mb-2">
-        <p className="text-[12px] leading-relaxed text-icp-value">• Execution bottlenecks</p>
-        <p className="text-[12px] leading-relaxed text-icp-value">• Competitive digital pressure</p>
-        <p className="text-[12px] leading-relaxed text-icp-value">• Sales enablement delays</p>
-        <p className="text-[12px] leading-relaxed text-icp-value">• Hiring risk</p>
+        <p className="text-[12px] leading-relaxed text-icp-value">• Production volatility and launch instability</p>
+        <p className="text-[12px] leading-relaxed text-icp-value">• Fragile scaling and staffing anxiety</p>
+        <p className="text-[12px] leading-relaxed text-icp-value">• Client trust risk from delivery inconsistency</p>
+        <p className="text-[12px] leading-relaxed text-icp-value">• Quality drift when output volume increases</p>
       </div>
       <p className="text-[12px] leading-relaxed text-icp-value">
-        Then position the solution as: <Label>In-house control + consistent production support without adding fixed payroll.</Label>
+        Then position the solution as: <Label>In-house strategic control with structured, elastic production execution.</Label>
       </p>
     </div>
 
@@ -59,7 +56,7 @@ const MessagingArchitectureTab = () => (
     <div className="border-x border-b border-icp-grid/30">
       {/* Column headers */}
       <div className="grid grid-cols-[160px_1fr_1fr_1fr_1fr_100px] bg-muted/50 border-b border-icp-grid/20">
-        {["Pain", "CEO", "COO", "Marketing", "Sales", "Emotional Lever"].map((h) => (
+        {["Pain", "CEO", "COO", "Client Services", "Creative", "Emotional Lever"].map((h) => (
           <div key={h} className="px-3 py-2 text-[11px] font-bold border-r border-icp-grid/20 last:border-r-0 text-center">
             {h}
           </div>
@@ -105,13 +102,13 @@ const MessagingArchitectureTab = () => (
             </div>
             {/* Table header */}
             <div className="grid grid-cols-[140px_1fr_1fr_1fr_1fr] bg-muted/50 border-b border-icp-grid/20">
-              {["Angle Type", "CEO", "Marketing", "COO", "Sales"].map((h) => (
+              {["Angle Type", "CEO", "COO", "Client Services", "Creative"].map((h) => (
                 <div key={h} className="px-3 py-2 text-[11px] font-bold border-r border-icp-grid/20 last:border-r-0 text-center">
                   {h}
                 </div>
               ))}
             </div>
-            {/* Angle rows — fixed order */}
+            {/* Angle rows - fixed order */}
             {ANGLE_TYPE_ORDER.map((angleType, j) => (
               <div key={j} className="grid grid-cols-[140px_1fr_1fr_1fr_1fr] border-b border-icp-grid/20 last:border-b-0">
                 <div className="px-3 py-2.5 text-[11px] font-bold bg-muted/50 border-r border-icp-grid/20">

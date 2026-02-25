@@ -3,61 +3,49 @@ import { SectionBar, Label, Value } from "./ICPPrimitives";
 const committeeData = [
   {
     category: "Champions",
-    title: "Marketing Manager, Marketing Coordinator, Fractional CMO",
-    role: "Owns marketing roadmap, messaging, and campaign priorities. Knows what needs to be built but lacks the production bandwidth to execute consistently. Seeks reliable design, web, and content support while retaining strategic control.",
+    title: "Director of Operations, Head of Creative Operations, Production Manager, Head of Client Services",
+    role: "Owns delivery timelines, workflow health, and resource allocation. Feels pressure when production delays affect clients. Primary concern: maintaining output quality without overwhelming internal teams.",
   },
   {
     category: "Decision Makers",
     title: "CEO, Founder, Managing Partner",
-    role: "Owns growth, margin, and vendor approval decisions. Skeptical of marketing vendors due to past disappointments. Focused on cost predictability, visible output, and protecting brand control.",
+    role: "Owns margin, scalability, and agency growth. Primary concern: protecting profitability while scaling client volume. Risk lens: avoiding fixed payroll expansion during uncertain pipeline cycles.",
   },
   {
     category: "Influencers",
-    title: "Head of Sales, Business Development Lead, vCIO",
-    role: "Requires updated landing pages, case studies, and collateral aligned with live sales conversations. Feels the impact when materials are delayed or outdated.",
-  },
-  {
-    category: "Blockers",
-    title: "Finance Lead / Controller, Operations Manager",
-    role: "Evaluates cost structure, scope clarity, and operational efficiency. Ensures recurring spend is predictable and justifiable compared to full-time hiring.",
+    title: "Creative Director, Technical Director, Paid Media Lead",
+    role: "Needs assets and builds delivered on time to execute strategy. Primary concern: execution reliability and technical accuracy.",
   },
 ];
 
 const jobsToBeDone = [
-  "Keep website content current and aligned with real service capability.",
-  "Turn internal expertise into visible proof assets.",
-  "Support sales with ready-to-use collateral and landing pages.",
-  "Launch vertical or cybersecurity initiatives without execution delays.",
-  "Maintain consistent output of content and marketing materials.",
-  "Keep pace with competitors that publish frequently.",
-  "Reduce dependency on referral-only growth.",
-  "Expand marketing capacity without hiring a full internal department.",
+  "Launch multi-channel campaigns without production delays.",
+  "Scale asset output without hiring full-time staff.",
+  "Maintain quality across client accounts.",
+  "Reduce freelancer inconsistency and rework.",
+  "Support paid media with fast landing page builds.",
+  "Deliver recurring creative collateral at predictable cost.",
+  "Protect margins while increasing client volume.",
+  "Keep internal leads focused on strategy instead of production firefighting.",
 ];
 
 const painPoints = [
-  "Marketing projects stall before completion.",
-  "Website messaging lags behind actual delivery capabilities.",
-  "Case studies are outdated or incomplete.",
-  "Sales materials are reactive and assembled last minute.",
-  "One internal marketing lead becomes the bottleneck.",
-  "Agency engagements felt slow, generic, or unclear in value.",
-  "Competitors appear more specialized due to higher publishing volume.",
-  "Inconsistent marketing reduces perceived authority.",
-  "Referral fluctuations create pipeline instability.",
-  "Hiring multiple full-time marketing roles is financially risky.",
-  "Campaign execution lacks consistency.",
-  "Digital presence does not match service quality.",
+  "Production backlog slows campaign launches.",
+  "Designers overloaded during client spikes.",
+  "Developers tied up on small updates.",
+  "Freelancers cause QA and revision cycles.",
+  "Campaign assets not ready when media goes live.",
+  "Margin compression due to inefficient production.",
+  "Hiring full-time staff feels risky.",
 ];
 
 const goals = [
-  "Maintain control of messaging internally.",
-  "Increase consistency of marketing output.",
-  "Improve competitive positioning online.",
-  "Support outbound and sales growth initiatives.",
-  "Build visible vertical authority.",
-  "Keep marketing costs predictable.",
-  "Avoid unnecessary payroll expansion.",
-  "Strengthen credibility to protect pricing power.",
+  "Predictable production capacity.",
+  "Faster turnaround times.",
+  "Consistent asset quality.",
+  "Improved margin stability.",
+  "Reduced operational chaos.",
+  "Higher client retention due to delivery reliability.",
 ];
 
 const BulletList = ({ items, numbered }: { items: string[]; numbered?: boolean }) => (

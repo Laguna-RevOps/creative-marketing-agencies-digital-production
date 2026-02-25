@@ -1,19 +1,19 @@
 import { SectionBar, GridCell, Label, Value } from "./ICPPrimitives";
 
 const firmographicsData = [
-  { label: "Target Industry", value: "Managed Service Providers (MSPs)" },
-  { label: "Company Size", value: "5–50 employees" },
-  { label: "Annual Revenue", value: "$2M–$15M" },
-  { label: "Location", value: "United States" },
-  { label: "Company Age", value: "3+ Years" },
+  { label: "Target Industry", value: "Creative, Marketing, and Digital Agencies" },
+  { label: "Company Size", value: "5-50 employees" },
+  { label: "Annual Revenue", value: "$2M-$15M" },
+  { label: "Location", value: "United States & Canada" },
+  { label: "Company Age", value: "3+ years" },
 ];
 
 const techStacks = [
-  { label: "CRM Systems", value: "HubSpot, Zoho, Salesforce, ConnectWise Sell" },
-  { label: "Website / CMS", value: "WordPress, Webflow" },
-  { label: "Email & Automation", value: "Basic newsletter cadence, limited automation sequences" },
-  { label: "Advertising Platforms", value: "Google Ads, LinkedIn Ads (intermittent campaigns)" },
-  { label: "Tracking", value: "GA4, Tag Manager, call tracking (often partially implemented)" },
+  { label: "Creative & Design Tools", value: "Adobe Creative Cloud, Figma, After Effects, Premiere Pro, Sketch" },
+  { label: "CMS & Web Platforms", value: "WordPress, Webflow, Shopify, Adobe Experience Manager (AEM)" },
+  { label: "CRM & Marketing Platforms", value: "HubSpot, Salesforce, HubSpot Marketing Hub" },
+  { label: "Advertising Platforms", value: "Google Ads, Meta Ads, LinkedIn Ads" },
+  { label: "Tracking & Analytics", value: "GA4, Tag Manager, Looker Studio" },
 ];
 
 const FirmographicsSection = () => (

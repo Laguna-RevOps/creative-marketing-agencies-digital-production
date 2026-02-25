@@ -1,47 +1,49 @@
 import { SectionBar, GridCell, Label, Value, VerticalLabel } from "./ICPPrimitives";
 
 const industries = [
-  "Small & Mid-Sized Businesses (SMBs)",
-  "Healthcare Practices",
-  "Legal Firms",
-  "Financial Services Firms",
-  "Manufacturing Companies",
+  "SaaS & B2B Technology",
+  "Healthcare & HealthTech",
+  "Financial Services & FinTech",
+  "E-commerce & Retail",
   "Professional Services",
-  "Multi-location businesses",
+  "Manufacturing",
+  "Consumer Brands",
 ];
 
-const industryNote = "Many position themselves as specialized providers but lack consistent vertical pages and documented proof to support that positioning.";
+const industryNote = "Many position themselves as specialized agencies but lack scalable internal production bandwidth to support consistent multi-channel output.";
 
 const solutions = [
-  "Managed IT Support (Help Desk, Monitoring, Endpoint Management)",
-  "Microsoft 365 & Cloud Services",
-  "Cybersecurity Services (EDR, MDR, Compliance Support)",
-  "Backup & Disaster Recovery",
-  "vCIO / Advisory Services",
+  "Brand Strategy & Identity",
+  "Campaign Strategy & Planning",
+  "Paid Media Management",
+  "SEO & Content Strategy",
+  "Social Media Strategy",
+  "Website Strategy & UX",
+  "Creative Direction",
+  "Performance Marketing",
 ];
 
 const goodFit = [
-  "MSP wants to keep marketing direction and messaging internal.",
-  "There is at least one internal marketing owner.",
-  "Marketing backlog exists (pages, case studies, collateral waiting to ship).",
-  "Website does not reflect actual service maturity.",
-  "Sales regularly requests updated materials that are not ready.",
-  "Competitors are visibly more active online.",
-  "MSP recognizes digital presence impacts perceived credibility and pricing.",
-  "They have experienced disappointment with traditional marketing agencies.",
-  "They prefer structured production support over full strategy outsourcing.",
-  "They want predictable cost without long-term payroll expansion.",
-  "They understand that consistent output compounds over time.",
+  "Keeps strategy and client ownership fully in-house.",
+  "Has recurring campaign volume across multiple clients.",
+  "Experiences production spikes and asset backlog.",
+  "Landing pages, banners, or videos sit waiting in queue.",
+  "Uses freelancers but struggles with consistency and turnaround.",
+  "Wants predictable monthly production capacity.",
+  "Values structured workflows and QA.",
+  "Cares about protecting margin.",
+  "Sees execution as infrastructure, not optional.",
 ];
 
 const badFit = [
-  "No internal marketing ownership.",
-  "Wants a third party to fully control positioning and messaging.",
-  "Expects guaranteed leads without investing in foundational assets.",
+  "Wants full campaign ownership outsourced.",
+  "Expects ideation, positioning, or strategy from a production partner.",
+  "No internal creative or account leadership.",
+  "Only interested in one-off design tasks.",
+  "No recurring campaign volume.",
+  "Procurement-only mindset.",
   "Refuses structured request and approval workflows.",
-  "Only interested in isolated one-off tasks.",
-  "Does not see competitive digital presence as important.",
-  "Unwilling to commit to consistent production rhythm.",
+  "Treats production as ad hoc, not operational.",
 ];
 
 const BulletList = ({ items, className = "" }: { items: string[]; className?: string }) => (

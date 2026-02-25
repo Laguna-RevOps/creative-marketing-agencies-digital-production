@@ -1,10 +1,10 @@
 import { SectionBar, Value } from "./ICPPrimitives";
 
 const whereData = [
-  { label: "Communities", value: "MSP peer groups, vendor ecosystems, industry forums" },
+  { label: "Communities", value: "Agency owner communities, Creative Operations groups, Operations-focused Slack communities" },
   { label: "Professional Platforms", value: "LinkedIn" },
-  { label: "Industry Events", value: "Channel conferences, vendor roadshows, regional MSP meetups" },
-  { label: "Research Behavior", value: "Competitor website comparison, service positioning review, security offering analysis" },
+  { label: "Industry Events", value: "Traffic & Conversion Summit, HubSpot Inbound" },
+  { label: "Research Behavior", value: "Founder-led agency newsletters, partner and competitor workflow research" },
 ];
 
 const WhereUsersSection = () => (

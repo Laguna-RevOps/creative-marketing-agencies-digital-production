@@ -9,6 +9,7 @@ interface Persona {
   headerType: string;
   image: string;
   general: { label: string; value: string }[];
+  emotionalDrivers: string[];
   background: string[];
   goals: string[];
   challenges: string[];
@@ -29,6 +30,13 @@ const personas: Persona[] = [
       { label: "Location", value: "United States / Canada" },
       { label: "Company Size", value: "5-50 employees" },
       { label: "Company Revenue", value: "$2M-$15M" },
+    ],
+    emotionalDrivers: [
+      "Fear of growth creachaos",
+      "Anxiety around silent margin erosion",
+      "Desire to scale without operational fragility",
+      "Pride in running a disciplined, efficient agency",
+      "Relief in knowing capacity flexes with revenue",
     ],
     background: [
       "Built the agency around relationships, positioning, and strategic delivery.",
@@ -89,6 +97,13 @@ const personas: Persona[] = [
       { label: "Location", value: "United States / Canada" },
       { label: "Company Size", value: "5-50 employees" },
       { label: "Company Revenue", value: "$2M-$15M" },
+    ],
+    emotionalDrivers: [
+      "Stress from unpredictable production spikes",
+      "Frustration with constant firefighting",
+      "Need for structured, reliable throughput",
+      "Pride in operational control and precision",
+      "Relief when delivery runs without escalation",
     ],
     background: [
       "Owns delivery across all client accounts.",
@@ -152,6 +167,13 @@ const personas: Persona[] = [
       { label: "Company Size", value: "5-50 employees" },
       { label: "Company Revenue", value: "$2M-$15M" },
     ],
+    emotionalDrivers: [
+      "Fear of being exposed by missed timelines",
+      "Anxiety around client escalations",
+      "Desire to commit with confidence",
+      "Need to protect client trust",
+      "Relief during launches when execution is stable",
+    ],
     background: [
       "Owns client relationships and revenue retention.",
       "Responsible for aligning campaign strategy with delivery timelines.",
@@ -214,6 +236,13 @@ const personas: Persona[] = [
       { label: "Location", value: "United States / Canada" },
       { label: "Company Size", value: "5-50 employees" },
       { label: "Company Revenue", value: "$2M-$15M" },
+    ],
+    emotionalDrivers: [
+      "Fear of creative quality slipping under pressure",
+      "Frustration with production bottlenecks",
+      "Pride in protecting brand standards",
+      "Tension between speed and excellence",
+      "Relief when volume does not compromise quality",
     ],
     background: [
       "Owns creative direction and brand quality.",
@@ -322,6 +351,14 @@ const PersonaBlock: React.FC<{ persona: Persona }> = ({ persona }) => (
             <div className="px-3 py-1.5 text-[11px] bg-icp-cell">
               <Value>{item.value}</Value>
             </div>
+          </div>
+        ))}
+        <div className="mt-2 bg-muted/50 border-b border-icp-grid/20 px-3 py-1.5 text-[11px] font-bold text-center">
+          Emotional Drivers
+        </div>
+        {persona.emotionalDrivers.map((driver, i) => (
+          <div key={i} className="px-3 py-1.5 text-[11px] bg-icp-cell border-b border-icp-grid/20 last:border-b-0">
+            <Value>{driver}</Value>
           </div>
         ))}
       </div>

@@ -24,7 +24,7 @@ const FirmographicsSection = () => (
     <div className="grid grid-cols-2 border-x border-b border-icp-grid/30">
       {/* Left: Firmographics list */}
       <div className="border-r border-icp-grid/30">
-        <div className="min-h-[44px] px-4 py-2.5 flex items-center justify-center text-center border-b border-gray-200 bg-muted/50">
+        <div className="min-h-[36px] px-4 py-1.5 flex items-center justify-center text-center border-b border-gray-200 bg-muted/50">
           <span className="text-[11px] font-semibold text-icp-label">
             <Label>Company Profile</Label>
           </span>
@@ -42,7 +42,7 @@ const FirmographicsSection = () => (
       </div>
       {/* Right: Technology stack */}
       <div>
-        <div className="min-h-[44px] px-4 py-2.5 flex items-center justify-center text-center border-b border-gray-200 bg-muted/50">
+        <div className="min-h-[36px] px-4 py-1.5 flex items-center justify-center text-center border-b border-gray-200 bg-muted/50">
           <span className="text-[11px] font-semibold text-icp-label">
             <Label>Technology Stack</Label>
           </span>

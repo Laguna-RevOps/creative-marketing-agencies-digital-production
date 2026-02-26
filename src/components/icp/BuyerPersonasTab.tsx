@@ -48,7 +48,7 @@ const personas: Persona[] = [
     ],
     goals: [
       "Increase client volume without lowering gross margin.",
-      "Maintain 55-70 percent gross margin across accounts.",
+      "Maintain healthy gross margins across accounts.",
       "Avoid hiring full-time designers or developers for short-term spikes.",
       "Improve revenue per employee.",
       "Build a delivery model that can handle campaign surges.",

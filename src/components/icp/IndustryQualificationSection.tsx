@@ -59,21 +59,17 @@ const BulletList = ({ items, className = "" }: { items: string[]; className?: st
 const IndustryQualificationSection = () => (
   <div>
     <SectionBar>
-      <div className="grid grid-cols-[1fr_1fr_1fr] items-center">
-        <span>What Industry They Serve</span>
-        <span className="text-center">Qualification Criteria</span>
-        <div className="grid grid-cols-2 text-center">
-          <span>Good</span>
-          <span>Bad</span>
-        </div>
+      <div className="grid grid-cols-[28px_1fr_28px_1fr_1fr_1fr] items-center">
+        <span className="col-span-4 flex items-center justify-center">What Industry They Serve</span>
+        <span className="col-span-2 flex items-center justify-center">Qualification Criteria</span>
       </div>
     </SectionBar>
     <div className="grid grid-cols-[28px_1fr_28px_1fr_1fr_1fr] border-x border-b border-icp-grid/30">
       {/* Industries vertical label + list */}
-      <VerticalLabel>Industries</VerticalLabel>
-      <div className="border-r border-icp-grid/30">
+      <VerticalLabel className="border-y-0">Industries</VerticalLabel>
+      <div>
         {industries.map((ind, i) => (
-          <GridCell key={i} className="border-b border-icp-grid/20 last:border-b-0">
+          <GridCell key={i} className="border-x-0 border-t-0 border-b border-icp-grid/20 last:border-b-0">
             <Value>{ind}</Value>
           </GridCell>
         ))}
@@ -83,7 +79,7 @@ const IndustryQualificationSection = () => (
       </div>
 
       {/* Solutions vertical label + list */}
-      <VerticalLabel>Solutions</VerticalLabel>
+      <VerticalLabel className="border-y-0">Solutions</VerticalLabel>
       <div className="border-r border-icp-grid/30">
         {solutions.map((sol, i) => (
           <div key={i} className="px-3 py-2 text-[11px] leading-relaxed border-b border-icp-grid/20 last:border-b-0 bg-icp-cell">
@@ -93,8 +89,8 @@ const IndustryQualificationSection = () => (
       </div>
 
       {/* Good column */}
-      <div className="border-r border-icp-grid/30">
-        <GridCell header className="text-center border-b border-icp-grid/20">
+      <div className="border-r border-gray-200">
+        <GridCell header className="text-center border-x-0 border-t-0 border-b border-icp-grid/20">
           Good Fit
         </GridCell>
         <div className="px-3 py-2 bg-icp-cell">
@@ -104,7 +100,7 @@ const IndustryQualificationSection = () => (
 
       {/* Bad column */}
       <div>
-        <GridCell header className="text-center border-b border-icp-grid/20">
+        <GridCell header className="text-center border-x-0 border-t-0 border-b border-icp-grid/20">
           Bad Fit
         </GridCell>
         <div className="px-3 py-2 bg-icp-cell">

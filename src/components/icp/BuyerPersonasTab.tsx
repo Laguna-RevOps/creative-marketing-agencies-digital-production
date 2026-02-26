@@ -32,7 +32,7 @@ const personas: Persona[] = [
       { label: "Company Revenue", value: "$2M-$15M" },
     ],
     emotionalDrivers: [
-      "Fear of growth creachaos",
+      "Fear of growth chaos",
       "Anxiety around silent margin erosion",
       "Desire to scale without operational fragility",
       "Pride in running a disciplined, efficient agency",

@@ -31,7 +31,7 @@ const triggers = [
 const BuyingTriggersSection = () => (
   <div>
     <SectionBar>
-      <div className="text-center">Buying Triggers Events</div>
+      <div className="text-center">Buying Trigger Events</div>
     </SectionBar>
     <div className="border-x border-b border-icp-grid/30 bg-icp-cell">
       {triggers.map((t, i) => (

@@ -52,7 +52,7 @@ const Index = () => {
       {/* ICP Sheet */}
       <div className="icp-sheet w-full max-w-[1100px] border-2 border-foreground bg-icp-cell font-suse">
         {/* Logo placeholder */}
-        <div className="flex justify-center py-3 border-b border-icp-grid/30">
+        <div className="flex items-center justify-center py-3 border-b border-icp-grid/30">
           <img src={boombitLogo} alt="Boombit" className="h-8 inline-block mr-2 align-middle" />
           <span className="text-2xl font-bold tracking-wider text-icp-label uppercase align-middle">
             Boombit
